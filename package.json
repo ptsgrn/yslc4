@@ -1,0 +1,20 @@
+{
+  "name": "yslc4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hello.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "asciify-image": "^0.1.8",
+    "chalk": "^5.0.1",
+    "columnify": "^1.6.0",
+    "figlet": "^1.5.2",
+    "nf-icons": "^0.1.0"
+  }
+}
