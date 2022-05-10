@@ -6,6 +6,7 @@
   import IconPaw from 'svelte-material-icons/PawOutline.svelte'
   import IconHomeFlood from 'svelte-material-icons/HomeFlood.svelte'
   import IconHandHeart from 'svelte-material-icons/HandHeartOutline.svelte'
+  import { donorsList } from '@lib/store/mockupdata'
   const category = [
     {
       icon: IconWheelchair,
@@ -47,7 +48,7 @@
     </div>
   </div>
   <div class="">
-    <h2 class="text-3xl font-bold text-center py-5">
+    <h2 class="text-2xl font-bold text-center py-5">
       ผู้ขอรับบริจาค
     </h2>
     <div class="flex flex-row items-center justify-center flex-wrap m-3">
@@ -68,5 +69,22 @@
         </div>
       {/each}
     </div>
-  </div> 
+  </div>
+  <!-- 3x3 grid -->
+  <div class="
+    grid grid-col-2 grid-flow-row gap-3
+    md:grid-cols-3
+  ">
+    {#each $donorsList as data}
+      <a href={`/donor/${data.link}`} class="p-2 m-2">
+        <img src={data.image} alt="{data.name}" class="w-full aspect-[4/3] rounded-2xl" />
+        <b class="">
+          {data.name}
+        </b>
+        <div class="">
+          {data.problems.persona}&nbsp;&middot;&nbsp;{data.problems.details} 
+        </div>
+      </a>
+    {/each}
+  </div>
 </main>
