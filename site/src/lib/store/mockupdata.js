@@ -11,7 +11,7 @@ const PLACEHOLDER_IMG = yslcDtac
 const _donorsList = [
   {
     "link": "0000",
-    "image": PLACEHOLDER_IMG,
+    // "image": PLACEHOLDER_IMG,
     "name": "สมทบทุนค่ารถขนช้างเพื่อเดินทางไปรักษา",
     "problems": {
       "persona": "ช้างชรา",

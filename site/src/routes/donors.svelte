@@ -6,6 +6,7 @@
   import IconPaw from 'svelte-material-icons/PawOutline.svelte'
   import IconHomeFlood from 'svelte-material-icons/HomeFlood.svelte'
   import IconHandHeart from 'svelte-material-icons/HandHeartOutline.svelte'
+  import PHD_3x4 from '@assets/phd_400x300.png'
   import { donorsList } from '@lib/store/mockupdata'
   const category = [
     {
@@ -34,7 +35,9 @@
     }
   ]
 </script>
-
+<svelte:head>
+  <title>รายการผู้ขอรับบริจาค</title>
+</svelte:head>
 <main>
   <div class="relative w-full h-52 overflow-hidden">
     <img src={HeroIMG} alt="Homeless sideroad" class="w-full -translate-y-16" />
@@ -48,7 +51,7 @@
     </div>
   </div>
   <div class="">
-    <h2 class="text-2xl font-bold text-center py-5">
+    <h2 class="text-2xl font-bold text-center py-5 mt-5">
       ผู้ขอรับบริจาค
     </h2>
     <div class="flex flex-row items-center justify-center flex-wrap m-3">
@@ -59,8 +62,8 @@
           items-center justify-start 
           rounded-md 
           p-2 mx-2 my-4
-          first:ml-0 last:mr-0
-          hover:bg-blue-200
+          md:first:ml-0 md:last:mr-0
+          hover:bg-blue-100 active:bg-blue-200
           ">
           <svelte:component this="{icon}" size="30px" />
           <span class="text-sm font-bold text-center">
@@ -76,12 +79,21 @@
     md:grid-cols-3
   ">
     {#each $donorsList as data}
-      <a href={`/donor/${data.link}`} class="p-2 m-2">
-        <img src={data.image} alt="{data.name}" class="w-full aspect-[4/3] rounded-2xl" />
-        <b class="">
+      <a href={`/donor/${data.link}`} class="
+        p-3 m-2 rounded-2xl
+        hover:shadow-md hover:bg-blue-50 hover:-translate-y-1
+        transition-all duration-200
+        visited:order-last peer-visited:order-last
+      ">
+        {#if data.image}
+          <img src={data.image} alt="{data.name}" class="w-full aspect-[4/3] rounded-2xl mb-4" />
+        {:else}
+          <img src={PHD_3x4} alt="{data.name}" class="w-full aspect-[4/3] rounded-2xl mb-4" />
+        {/if}
+        <b class="text-lg">
           {data.name}
         </b>
-        <div class="">
+        <div class="line-clamp-2">
           {data.problems.persona}&nbsp;&middot;&nbsp;{data.problems.details} 
         </div>
       </a>
