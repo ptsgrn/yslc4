@@ -17,7 +17,7 @@
           หน้าแรก
         </span>
       </a>
-      <a href="/" class="flex items-center">
+      <a href="/donors" class="flex items-center">
         <span class="text-md p-1">
           ผู้ขอรับบริจาค
         </span>
@@ -27,12 +27,12 @@
           ยื่นขอรับบริจาค
         </span>
       </a>
-      <a href="/" class="flex items-center">
+      <a href="/announces" class="flex items-center">
         <span class="text-md p-1">
           ประกาศ
         </span>
       </a>
-      <a href="/" class="flex items-center">
+      <a href="/login" class="flex items-center">
         <span class="text-md p-1">
           เข้าสู่ระบบ
         </span>
@@ -41,7 +41,7 @@
   </div>
 </nav>
 <slot />
-<footer class="flex flex-col sm:flex-row bg-gray-300 justify-center items-center p-3 max-w-5xl">
+<footer class="flex flex-col sm:flex-row bg-gray-300 justify-center items-center p-3">
   <div class="flex flex-row mb-3 md:mb-0">
     <img src={LogoIMG} alt="Logo" class="h-14 w-14 rounded-full mx-4" />
     <img src={DtacSafeInternetIMG} alt="dtacSafeInternet logo" class="h-14 mx-4" />
