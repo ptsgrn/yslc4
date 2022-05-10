@@ -1,8 +1,8 @@
 <script>
   import "../app.css";
-  import LogoIMG from "../assets/logo_uncrop.png";
-  import DtacSafeInternetIMG from '../assets/dtacSIC.png'
-  import YSLCIMG from '../assets/yscl-dtac-1024x574.png'
+  import LogoIMG from "@assets/logo_uncrop.png";
+  import DtacSafeInternetIMG from '@assets/dtacSIC.png'
+  import YSLCIMG from '@assets/yscl-dtac-1024x574.png'
 </script>
 <svelte:head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
