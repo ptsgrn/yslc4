@@ -12,7 +12,10 @@ module.exports = {
       'mainpage': "url('/pexels-ben-mack.jpg')",
     },
     colors: {
-      yellow: '#FAE57C',
+      yellow: {
+        ...defaultTheme.colors.yellow,
+        200: '#fae57c'
+      },
       blue: {
         100: '#d6f0ff',
         200: '#99daff',
