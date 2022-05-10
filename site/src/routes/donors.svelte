@@ -1,3 +1,13 @@
+<script context="module">
+/** @type {import('@sveltejs/kit').Load} */
+export function load({url}) {
+  return {
+    props: {
+      category: url.searchParams.get('category'),
+    }
+  }
+}
+</script>
 <script>
   import HeroIMG from '@assets/ev-IWJH-l-vb4k-unsplash.jpg'
   import IconWheelchair from 'svelte-material-icons/WheelchairAccessibility.svelte'
@@ -6,31 +16,45 @@
   import IconPaw from 'svelte-material-icons/PawOutline.svelte'
   import IconHomeFlood from 'svelte-material-icons/HomeFlood.svelte'
   import IconHandHeart from 'svelte-material-icons/HandHeartOutline.svelte'
+  import IconAll from 'svelte-material-icons/SetAll.svelte'
   import PHD_3x4 from '@assets/phd_400x300.png'
   import { donorsList } from '@lib/store/mockupdata'
-  const category = [
+  export let category = ""
+  $: dataToShow = $donorsList.slice(0, 9)
+  const categories = [
+    {
+      icon: IconAll,
+      id: 'all',
+      title: 'ทั้งหมด'
+    },
     {
       icon: IconWheelchair,
+      id: 'patients-and-disabilities',
       title: 'ผู้ป่วยและผู้พิการ'
     },
     {
       icon: IconKid,
+      id: 'children',
       title: 'เด็กและเยาวชน'
     },
     {
       icon: IconHumanCane,
+      id: 'old-people',
       title: 'ผู้สูงอายุ'
     },
     {
       icon: IconPaw,
+      id: 'animals',
       title: 'สัตว์'
     },
     {
       icon: IconHomeFlood,
+      id: 'accident',
       title: 'อุบัติภัย'
     },
     {
       icon: IconHandHeart,
+      id: 'other',
       title: 'อื่น ๆ'
     }
   ]
@@ -51,25 +75,35 @@
     </div>
   </div>
   <div class="">
-    <h2 class="text-2xl font-bold text-center py-5 mt-5">
+    <h2 class="text-2xl font-bold text-center pb-2 mt-10">
       ผู้ขอรับบริจาค
     </h2>
+    <div class="text-center">
+    {#if category && categories.find(c => c.id === category)?.title && category !== 'all'}
+      หมวดหมู่: {categories.find(c => c.id === category)?.title}  
+    {:else}
+      คุณสามารถเลือกหมวดหมู่เพิ่มเติมได้ด้านล่าง
+    {/if}
+    </div>
     <div class="flex flex-row items-center justify-center flex-wrap m-3">
-      {#each category as { icon, title }}
-        <div class="
-          flex flex-col
-          w-32 
-          items-center justify-start 
-          rounded-md 
-          p-2 mx-2 my-4
-          md:first:ml-0 md:last:mr-0
-          hover:bg-blue-100 active:bg-blue-200
+      {#each categories as { icon, id, title }}
+        <a href={`/donors?category=${id}`}>
+          <div class="
+            flex flex-col
+            w-32 
+            items-center justify-start 
+            rounded-md 
+            p-2 mx-2 my-4
+            md:first:ml-0 md:last:mr-0
+            hover:bg-blue-100 active:bg-blue-200
+            {category === id ? 'bg-blue-50' : ''}
           ">
-          <svelte:component this="{icon}" size="30px" />
-          <span class="text-sm font-bold text-center">
-            {title}
-          </span>
-        </div>
+            <svelte:component this="{icon}" size="30px" />
+            <span class="text-sm font-bold text-center">
+              {title}
+            </span>
+          </div>
+        </a>
       {/each}
     </div>
   </div>
@@ -78,7 +112,7 @@
     grid grid-col-2 grid-flow-row gap-3
     md:grid-cols-3
   ">
-    {#each $donorsList as data}
+    {#each dataToShow as data}
       <a href={`/donor/${data.link}`} class="
         p-3 m-2 rounded-2xl
         hover:shadow-md hover:bg-blue-50 hover:-translate-y-1
@@ -97,6 +131,10 @@
           {data.problems.persona}&nbsp;&middot;&nbsp;{data.problems.details} 
         </div>
       </a>
+    {:else}
+      <div class="text-center p-5 font-bold">
+        ไม่พบข้อมูล
+      </div>
     {/each}
   </div>
 </main>
