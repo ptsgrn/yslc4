@@ -94,7 +94,8 @@ const _donorsList = [
     "requirement": "50000",
     "contact": "0634985593",
     "date": { "day": "07", "month": "May", "year": "2022" },
-    "others": ""
+    "others": "",
+    "goal": "77,000 บาท"
   },
   {
     "link": "0005",
