@@ -3,36 +3,41 @@
   import LogoIMG from "@assets/logo_uncrop.png";
   import DtacSafeInternetIMG from '@assets/dtacSIC.png'
   import YSLCIMG from '@assets/yscl-dtac-1024x574.png'
+  import IconWarning from 'svelte-material-icons/AlertCircleOutline.svelte'
+  import { dismissInPresentMode } from '@lib/store/dismiss';
 </script>
 <svelte:head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,800;1,400;1,800&family=Noto+Sans+Thai&display=swap" rel="stylesheet">
 </svelte:head>
+<div class="bg-red-700 text-yellow-50 p-2 text-center text-sm { $dismissInPresentMode ? 'hidden' : 'block'}">
+  <IconWarning size="25px"/> เว็บไซต์อยู่ในโหมดนำเสนอ หลาย ๆ ฟังก์ชันอาจใช้งานไม่ได้ และเราตั้งใจให้เป็นแบบนั้น <button class="underline" on:click={()=> $dismissInPresentMode = true }>ปิด</button>
+</div>
 <nav class="bg-blue-400">
   <div class="max-w-5xl mx-auto">
-    <div class="flex items-center justify-evenly">
-      <a href="/" class="flex items-center">
+    <div class="flex items-center justify-center">
+      <a href="/" class="flex items-center px-3">
         <span class="text-md p-1">
           หน้าแรก
         </span>
       </a>
-      <a href="/donors" class="flex items-center">
+      <a href="/donors" class="flex items-center px-3">
         <span class="text-md p-1">
           ผู้ขอรับบริจาค
         </span>
       </a>
-      <a href="/" class="flex items-center">
+      <a href="/" class="flex items-center px-3">
         <span class="text-md p-1">
           ยื่นขอรับบริจาค
         </span>
       </a>
-      <a href="/announces" class="flex items-center">
+      <a href="/announces" class="flex items-center px-3">
         <span class="text-md p-1">
           ประกาศ
         </span>
       </a>
-      <a href="/login" class="flex items-center">
+      <a href="/login" class="flex items-center px-3">
         <span class="text-md p-1">
           เข้าสู่ระบบ
         </span>
@@ -41,7 +46,7 @@
   </div>
 </nav>
 <slot />
-<footer class="flex flex-col sm:flex-row bg-gray-300 justify-center items-center p-3">
+<footer class="flex flex-col md:flex-row bg-gray-300 justify-center items-center p-3">
   <div class="flex flex-row mb-3 md:mb-0">
     <img src={LogoIMG} alt="Logo" class="h-14 w-14 rounded-full mx-4" />
     <img src={DtacSafeInternetIMG} alt="dtacSafeInternet logo" class="h-14 mx-4" />
