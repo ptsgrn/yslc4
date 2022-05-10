@@ -1,7 +1,12 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
-  theme: {},
+  theme: {
+    fontFamily: {
+      'sans': ['Inter', 'Noto Sans Thai', ...defaultTheme.fontFamily.sans]
+    }
+  },
   extend: {
     backgroundImage: {
       'mainpage': "url('/pexels-ben-mack.jpg')",
