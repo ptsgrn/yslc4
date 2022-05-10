@@ -20,7 +20,6 @@ export function load({url}) {
   import PHD_3x4 from '@assets/phd_400x300.png'
   import { donorsList } from '@lib/store/mockupdata'
   export let category = ""
-  $: dataToShow = $donorsList.slice(0, 9)
   const categories = [
     {
       icon: IconAll,
@@ -58,6 +57,14 @@ export function load({url}) {
       title: 'อื่น ๆ'
     }
   ]
+  let dataToShow = []
+  $: {
+    if (category === 'all' || !category || !categories.find(c => c.id === category)?.id) {
+      dataToShow = $donorsList
+    } else {
+      dataToShow = $donorsList.filter(donor => donor.category === category)
+    }
+  }
 </script>
 <svelte:head>
   <title>รายการผู้ขอรับบริจาค</title>
@@ -136,5 +143,10 @@ export function load({url}) {
         ไม่พบข้อมูล
       </div>
     {/each}
+    {#if dataToShow.length !== 0}
+      <div class="text-center pt-5 pb-2">
+        พบ {dataToShow.length} รายการ
+      </div>
+    {/if}
   </div>
 </main>

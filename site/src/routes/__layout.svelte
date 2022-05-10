@@ -1,5 +1,6 @@
 <script>
   import "../app.css";
+  import '@splidejs/svelte-splide/css/skyblue';
   import LogoIMG from "@assets/logo_uncrop.png";
   import DtacSafeInternetIMG from '@assets/dtacSIC.png'
   import YSLCIMG from '@assets/yscl-dtac-1024x574.png'
@@ -8,7 +9,7 @@
 </script>
 <svelte:head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,800;1,400;1,800&family=Noto+Sans+Thai&display=swap" rel="stylesheet">
 </svelte:head>
 <div class="bg-red-700 text-yellow-50 p-2 text-center text-sm { $dismissInPresentMode ? 'hidden' : 'block'}">
