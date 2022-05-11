@@ -9,7 +9,7 @@ export function load({url}) {
 }
 </script>
 <script>
-  import HeroIMG from '@assets/ev-IWJH-l-vb4k-unsplash.jpg'
+  import HeroIMG from '@assets/banner.jpg'
   import IconWheelchair from 'svelte-material-icons/WheelchairAccessibility.svelte'
   import IconKid from 'svelte-material-icons/BabyFaceOutline.svelte'
   import IconHumanCane from 'svelte-material-icons/HumanCane.svelte'
@@ -58,6 +58,13 @@ export function load({url}) {
       title: 'อื่น ๆ'
     }
   ]
+  /**
+   * @typedef {import('@lib/store/mockupdata').MockupDataDonorsList} MockupDataDonorsList
+   * @typedef {import('@lib/store/mockupdata').MockupDonorBankAccount} MockupDonorBankAccount
+   * @typedef {import('@lib/store/mockupdata').MockupDonorDate} MockupDonorDate
+   * @typedef {import('@lib/store/mockupdata').MockupDonorsProblem} MockupDonorsProblem
+   */
+  /** @type { MockupDataDonorsList[] } */
   let dataToShow = []
   $: {
     if (category === 'all' || !category || !categories.find(c => c.id === category)?.id) {
@@ -71,14 +78,14 @@ export function load({url}) {
   <title>รายการผู้ขอรับบริจาค</title>
 </svelte:head>
 <main>
-  <div class="relative w-full h-52 overflow-hidden">
-    <img src={HeroIMG} alt="Homeless sideroad" class="w-full -translate-y-16" />
+  <div class="relative w-full overflow-hidden">
+    <img src={HeroIMG} alt="Homeless sideroad" class="w-full" />
     <div class="absolute top-[50%] -translate-y-[50%] inset-x-0 text-xs text-center backdrop-blur-sm w-[50%] p-2 mx-auto rounded-md drop-shadow-xl max-w-md">
       <h1 class="text-3xl font-bold text-white drop-shadow-md">
         เติมเต็ม
       </h1>
       <span class="text-white drop-shadow-md text-lg">
-        รู้ว่าใครจะเป็นยังมีคนข้างหน้าอยู่ในอกที่อยากเจอ
+        มาช่วยเติมเต็ม ส่งมอบโอกาสให้กับทุกๆคน ร่วมกันสร้างสังคมแห่งความเกื้อกูลกัน และเติมเต็มหวามหวังแห่งการบริจาคอีกครั้ง
       </span>
     </div>
   </div>
@@ -123,7 +130,7 @@ export function load({url}) {
     lg:grid-cols-4
   ">
     {#each dataToShow as data}
-      <a href={`/donor/${data.link}`} class="
+      <a href={`/donor/${data.id}`} class="
         p-3 m-2 rounded-2xl
         hover:shadow-md hover:bg-blue-50 hover:-translate-y-1
         transition-all duration-200
@@ -138,7 +145,7 @@ export function load({url}) {
           {data.name}
         </b>
         <div class="line-clamp-2">
-          {data.problems.persona}&nbsp;&middot;&nbsp;{data.problems.details} 
+          {typeof data.problems === 'object' ? data.problems.persona:data.problems.persona}&nbsp;&middot;&nbsp;{data.problems.details} 
         </div>
       </a>
     {/each}

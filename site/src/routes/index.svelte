@@ -22,17 +22,17 @@
         </span>
       </button>
     </a>
-    <a href="donors" class="inline w-40 mt-4">
+    <a href="/donors" class="inline w-40 mt-4">
       <button class="bg-white py-1.5 px-2 rounded-lg w-44 text-sm text-left shadow-md hover:shadow-lg active:shadow-sm transition duration-150">
         <span class="mr-3">
           <IconEmailOutline size="27" />
         </span>
         <span class="w-40">
-          ผู้ขอรับบริจาค
+          ยื่นขอรับบริจาค
         </span>
       </button>
     </a>
-    <a href="donors" class="inline w-40 mt-4">
+    <a href="/scan" class="inline w-40 mt-4">
       <button class="bg-white py-1.5 px-2 rounded-lg w-44 text-sm text-left shadow-md hover:shadow-lg active:shadow-sm transition duration-150">
         <span class="mr-3">
           <CommentSearchOutline size="27" />
