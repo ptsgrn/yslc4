@@ -6,9 +6,12 @@
   import Introduce1 from '@assets/introduces1.png'
   import Introduce2 from '@assets/introduces2.png'
 </script>
-<main class="bg-yellow-200 container">
+<main class="bg-yellow-200 container mx-auto">
   <img src={Introduce1} alt="introduce" class="w-full h-full" />
   <div class="py-10 flex flex-col justify-center items-center">
+    <h2 class="text-xl p-2 mb-3 font-bold text-center">
+      คุณอยากจะไปไหน
+    </h2>
     <a href="donors" class="inline w-40">
       <button class="bg-white py-1.5 px-2 rounded-lg w-44 text-sm text-left shadow-md hover:shadow-lg active:shadow-sm transition duration-150">
         <span class="mr-3">
