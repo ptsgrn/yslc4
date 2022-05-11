@@ -9,11 +9,16 @@
   }
 </script>
 <script>
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/pagination';
   import PHD from '@assets/phd_400x300.png'
+  import IconAlert from 'svelte-material-icons/AlertBoxOutline.svelte'
   import { donorsList } from '@lib/store/mockupdata'
-  import { Splide, SplideSlide } from '@splidejs/svelte-splide';
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
+  import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+  import { Swiper, SwiperSlide } from 'swiper/svelte';
   export let linkId = '';
   let data = $donorsList.find(donor => donor.link === linkId);
   onMount(() => {
@@ -21,28 +26,31 @@
       goto('/donors');
     }
   });
+
 </script>
 
-<main class="p-10">
-  <div class="rounded-md">
-    <Splide aria-label="ภาพที่เกี่ยวข้อง">
-      {#if typeof data?.image === 'string'}
-      <SplideSlide>
-        <img src={data.image} alt="{data.name}" class="rounded-xl" />
-      </SplideSlide>
-      {:else if typeof data?.image === 'object'}
-        {#each data.image as image}
-        <SplideSlide>
-          <img src={image} alt="{data.name}" class="rounded-xl" />
-        </SplideSlide>
-      {:else}
-        <SplideSlide>
-          <img src={PHD} alt="{data.name}" class="rounded-xl" />
-        </SplideSlide>
-      {/each}
-    {/if}
-  </Splide>
-</div>
+<main class="p-10 container mx-auto">
+  <div class="container">
+    <Swiper
+    spaceBetween={50}
+    slidesPerView={2}
+    navigation={true}
+    modules={[Navigation, Pagination, Scrollbar, A11y]}
+  >
+    {#each data.slide as slide}
+      <SwiperSlide>
+        <img src={slide} alt="PHD" class="w-full max-w-sm mx-auto" />
+      </SwiperSlide>
+    {:else}
+      <div class="w-48 bg-gray-300 text-center flex flex-col items-center justify-center aspect-[4/3] rounded-2xl mx-auto">
+        <IconAlert size="30" />
+        <span>
+          ไม่มีภาพ
+        </span>
+      </div>
+    {/each}
+  </Swiper>
+  </div>
 <h1 class="text-xl font-bold text-center my-7">
   {data?.name}
 </h1>

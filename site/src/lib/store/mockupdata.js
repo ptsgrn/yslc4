@@ -13,6 +13,7 @@ const _donorsList = [
     "link": "0000",
     "category": 'animals',
     // "image": PLACEHOLDER_IMG,
+    "slide": [],
     "name": "สมทบทุนค่ารถขนช้างเพื่อเดินทางไปรักษา",
     "problems": {
       "persona": "ช้างชรา",
@@ -37,6 +38,9 @@ const _donorsList = [
     "link": "0001",
     "category": 'animals',
     "image": Img1,
+    "slide": [
+      Img1,
+    ],
     "name": "สมทบทุนค่ารถขนช้างเพื่อเดินทางไปรักษา",
     "problems": {
       "persona": "ช้างชรา",
@@ -61,6 +65,9 @@ const _donorsList = [
     "link": "0002",
     "category": 'animals',
     "image": Img2,
+    "slide": [
+      Img2,
+    ],
     "name": "เจ้าอาวาสวัดขอบิณฑบาตอาหารเม็ดช่วยสุนัขจรจัดกว่า 200 ตัว",
     "problems": { "persona": "สุนัขจรจัด", "details": "หมาแก่ หมาป่วย หมาพิการ และหมากำลังจะโต ขาดแคลนอาหารในการเลี้ยงดูไม่เพียงพอ จากสถานการณ์โควิคยาวต่อเนื่อง ทำให้มีคนมาทำบุญน้อยลง จนส่งผลกระทบกับสุนัขจรจัด ที่ชาวบ้านแอบนำมาปล่อย" },
     "address": "เชียงใหม่",
@@ -74,6 +81,9 @@ const _donorsList = [
     "link": "0003",
     "category": 'children',
     "image": Img3,
+    "slide": [
+      Img3,
+    ],
     "name": "ร่วมกันทำทุนขายขนมเต้ยออทิสติกสู้ชีวิต",
     "problems": { "persona": "ผู้ป่วยออทิสติก", "details": "อยากได้ต้นทุนในการทำขนมขาย" },
     "address": "",
@@ -87,6 +97,9 @@ const _donorsList = [
     "link": "0004",
     "category": 'animals',
     "image": Img4,
+    "slide": [
+      Img4,
+    ],
     "name": "ขอให้สุนัขได้มีหลังคาหลบแดดหลบฝน",
     "problems": { "persona": "สุนัข", "details": "เปิดระดมทุน 77,000 บาทเพื่อสร้างหลังคาที่หลบฝนเพิ่ม ขนาด 10เมตร*10เมตร" },
     "address": "ลพบุรี",
@@ -101,6 +114,9 @@ const _donorsList = [
     "link": "0005",
     "category": 'animals',
     "image": Img5,
+    "slide": [
+      Img5,
+    ],
     "name": "ช่วยช้างตกงาน",
     "problems": { "persona": "ช้าง", "details": "เปิดจองผลไม้ป้อนช้างออนไลน์ ช่วยช้างตกงานที่ไม่มีรายได้ ไม่มีเงินเดือน เพื่อจะได้นำเงินไปซื้อไร่อ้อยและต้นสับปะรดให้กับน้องช้าง" },
     "address": "",

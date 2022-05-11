@@ -1,6 +1,5 @@
 <script>
   import "../app.css";
-  import '@splidejs/svelte-splide/css/skyblue';
   import LogoIMG from "@assets/logo_uncrop.png";
   import DtacSafeInternetIMG from '@assets/dtacSIC.png'
   import YSLCIMG from '@assets/yscl-dtac-1024x574.png'

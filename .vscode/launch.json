@@ -1,10 +1,12 @@
 {
+  "version": "0.2.0",
   "configurations": [
     {
-      "type": "pwa-chrome",
-      "name": "http://localhost:3002/",
+      "type": "pwa-msedge",
       "request": "launch",
-      "url": "http://localhost:3002/"
+      "name": "Launch Edge against dev server",
+      "url": "http://localhost:3002",
+      "webRoot": "${workspaceFolder}/site"
     }
   ]
 }

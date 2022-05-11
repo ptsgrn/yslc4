@@ -1,7 +1,6 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@splidejs/svelte-splide': ^0.2.1
   '@sveltejs/adapter-auto': next
   '@sveltejs/kit': next
   '@tailwindcss/line-clamp': ^0.4.0
@@ -15,13 +14,14 @@ specifiers:
   svelte: ^3.44.0
   svelte-check: ^2.2.6
   svelte-material-icons: ^2.0.2
+  swiper: ^8.1.4
   tailwindcss: ^3.0.24
   typescript: ~4.6.2
 
 dependencies:
-  '@splidejs/svelte-splide': 0.2.1
   '@tailwindcss/line-clamp': 0.4.0_tailwindcss@3.0.24
   svelte-material-icons: 2.0.2_svelte@3.48.0
+  swiper: 8.1.4
 
 devDependencies:
   '@sveltejs/adapter-auto': 1.0.0-next.40
@@ -104,16 +104,6 @@ packages:
       estree-walker: 2.0.2
       picomatch: 2.3.1
     dev: true
-
-  /@splidejs/splide/4.0.1:
-    resolution: {integrity: sha512-fgiYX5xLwOFluKKiq9hde9V1tU6wFoTzznX4fOvok95GjEKq9WvkkKBS3/WCuMDn7LXvg/Qpo3Eq0m9QQEr8tA==}
-    dev: false
-
-  /@splidejs/svelte-splide/0.2.1:
-    resolution: {integrity: sha512-B4EhS7GCOV3UBEFDN6jPtD3OkeM8yK6PA+LLJ7s3Dr/umhCIG8IoBABRyXyIMLe7sihR/1GBjfjyjl/tln4hNw==}
-    dependencies:
-      '@splidejs/splide': 4.0.1
-    dev: false
 
   /@sveltejs/adapter-auto/1.0.0-next.40:
     resolution: {integrity: sha512-TT6YJUF3asJ/2RbviEpcDJQ/TixPcvmH0L2266fGNT7+KfAf9wbbVdegPWRODk2E2hTN0X+h5YS9l+lap+BK9w==}
@@ -455,6 +445,12 @@ packages:
     dependencies:
       esutils: 2.0.3
     dev: true
+
+  /dom7/4.0.4:
+    resolution: {integrity: sha512-DSSgBzQ4rJWQp1u6o+3FVwMNnT5bzQbMb+o31TjYYeRi05uAcpF8koxdfzeoe5ElzPmua7W7N28YJhF7iEKqIw==}
+    dependencies:
+      ssr-window: 4.0.2
+    dev: false
 
   /electron-to-chromium/1.4.137:
     resolution: {integrity: sha512-0Rcpald12O11BUogJagX3HsCN3FE83DSqWjgXoHo5a72KUKMSfI39XBgJpgNNxS9fuGzytaFjE06kZkiVFy2qA==}
@@ -1393,6 +1389,10 @@ packages:
     resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
     dev: true
 
+  /ssr-window/4.0.2:
+    resolution: {integrity: sha512-ISv/Ch+ig7SOtw7G2+qkwfVASzazUnvlDTwypdLoPoySv+6MqlOV10VwPSE6EWkGjhW50lUmghPmpYZXMu/+AQ==}
+    dev: false
+
   /strip-ansi/6.0.1:
     resolution: {integrity: sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==}
     engines: {node: '>=8'}
@@ -1525,6 +1525,15 @@ packages:
     resolution: {integrity: sha512-fN2YRm/bGumvjUpu6yI3BpvZnpIm9I6A7HR4oUNYd7ggYyIwSA/BX7DJ+UXXffLp6XNcUijyLvttbPVCYa/3xQ==}
     engines: {node: '>= 8'}
     dev: true
+
+  /swiper/8.1.4:
+    resolution: {integrity: sha512-ho6ceKxqbDxV51qymVxwn1oB4CqTrsG3Y5pGW2aKlZxsT6NMdlow8ICUa+wD/m5l2T5ZD2B0yyqTihSSmLBV4A==}
+    engines: {node: '>= 4.7.0'}
+    requiresBuild: true
+    dependencies:
+      dom7: 4.0.4
+      ssr-window: 4.0.2
+    dev: false
 
   /tailwindcss/3.0.24:
     resolution: {integrity: sha512-H3uMmZNWzG6aqmg9q07ZIRNIawoiEcNFKDfL+YzOPuPsXuDXxJxB9icqzLgdzKNwjG3SAro2h9SYav8ewXNgig==}
