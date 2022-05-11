@@ -27,7 +27,7 @@
           ผู้ขอรับบริจาค
         </span>
       </a>
-      <a href="/" class="flex items-center px-3">
+      <a href="/submit" class="flex items-center px-3">
         <span class="text-md p-1">
           ยื่นขอรับบริจาค
         </span>
@@ -67,7 +67,7 @@
         <b>Line&nbsp;Official:</b>&nbsp;<a href='https://line.me/ti/p/~@287htijc'>@287htijc</a>
       </li>
       <li>
-        <b>Facebook:</b>&nbsp;<a href='https://www.facebook.com/thermtem.org'>Thermtem.org</a>
+        <b>Facebook:</b>&nbsp;<a href='https://www.facebook.com/Thermtemcom-116128367755997/'>Thermtem.org</a>
       </li>
     </ul>
   </div>
