@@ -44,6 +44,11 @@ export async function load({ url }) {
     {
       text: 'ติดต่อเรา',
       link: '/contact'
+    },
+    {
+      text: 'แสกน',
+      link: '/scan',
+      highlight: true
     }
   ]
   let isMenuOpen = false
@@ -77,18 +82,20 @@ export async function load({ url }) {
         w-full flex 
         justify-center 
         items-center 
-        md:px-3  md:border-0 md:w-sm md:hover:shadow-md md:rounded-lg
+        md:px-3 md:border-0 md:w-sm md:hover:shadow-md md:rounded-lg md:mx-2
         border-b-2 
         border-blue-300 transition-all duration-200
         hover:bg-blue-200
+        last:border-b-0
         {isCurentPage(entry.link)?'bg-blue-100':''}
+        {entry.highlight?'bg-blue-500 text-white md:font-bold md:shadow-lg':''}
       ">
         <span class="text-md p-2">
           {entry.text}
         </span>
       </a>
     {/each}
-      <a href="/login" class="
+      <!-- <a href="/login" class="
         w-full flex 
         justify-center 
         items-center 
@@ -100,7 +107,7 @@ export async function load({ url }) {
         <span class="text-md p-2">
           เข้าสู่ระบบ
         </span>
-      </a>
+      </a> -->
     </div>
   </div>
   <button class="p-2 absolute cursor-pointer border-2 right-3 rounded-lg top-[50%] -translate-y-[50%] md:hidden {isMenuOpen ?'bg-gray-300':''}" on:click={()=> isMenuOpen = !isMenuOpen}>

@@ -9,7 +9,7 @@
 <main class="bg-yellow-200 container mx-auto">
   <img src={Introduce1} alt="introduce" class="w-full h-full" />
   <div class="py-10 flex flex-col justify-center items-center">
-    <h2 class="text-xl p-2 mb-3 font-bold text-center">
+    <h2 class="text-3xl p-2 mb-3 font-bold text-center">
       คุณอยากจะไปไหน
     </h2>
     <a href="donors" class="inline w-40">

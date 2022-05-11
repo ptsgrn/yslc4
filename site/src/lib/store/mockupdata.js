@@ -9,31 +9,31 @@ import Img5 from '@assets/image5.jpg'
 const PLACEHOLDER_IMG = yslcDtac
 
 const _donorsList = [
-  {
-    "link": "0000",
-    "category": 'animals',
-    // "image": PLACEHOLDER_IMG,
-    "slide": [],
-    "name": "สมทบทุนค่ารถขนช้างเพื่อเดินทางไปรักษา",
-    "problems": {
-      "persona": "ช้างชรา",
-      "details": "อาการกำเริบ กินน้อย นอนเจ็บนอนป่วย ต้องเดินทางจากชลบุรีไปรักษาที่โรงพยาบาลช้างสุรินทร์"
-    },
-    "address": "ชลบุรี",
-    "bank_account": {
-      "name": "สุชาติ บริสุทธิ์",
-      "number": "020328740251",
-      "bank": "ออมสิน"
-    },
-    "requirement": "ตามศรัทธา",
-    "contact": "0945055080",
-    "date": {
-      "day": "06",
-      "month": "May",
-      "year": "2022"
-    },
-    "others": ""
-  },
+  // {
+  //   "link": "0000",
+  //   "category": 'animals',
+  //   // "image": PLACEHOLDER_IMG,
+  //   "slide": [],
+  //   "name": "สมทบทุนค่ารถขนช้างเพื่อเดินทางไปรักษา",
+  //   "problems": {
+  //     "persona": "ช้างชรา",
+  //     "details": "อาการกำเริบ กินน้อย นอนเจ็บนอนป่วย ต้องเดินทางจากชลบุรีไปรักษาที่โรงพยาบาลช้างสุรินทร์"
+  //   },
+  //   "address": "ชลบุรี",
+  //   "bank_account": {
+  //     "name": "สุชาติ บริสุทธิ์",
+  //     "number": "020328740251",
+  //     "bank": "ออมสิน"
+  //   },
+  //   "requirement": "ตามศรัทธา",
+  //   "contact": "0945055080",
+  //   "date": {
+  //     "day": "06",
+  //     "month": "May",
+  //     "year": "2022"
+  //   },
+  //   "others": ""
+  // },
   {
     "link": "0001",
     "category": 'animals',
