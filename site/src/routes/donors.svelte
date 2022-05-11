@@ -17,6 +17,7 @@ export function load({url}) {
   import IconHomeFlood from 'svelte-material-icons/HomeFlood.svelte'
   import IconHandHeart from 'svelte-material-icons/HandHeartOutline.svelte'
   import IconAll from 'svelte-material-icons/SetAll.svelte'
+  import IcomAlert from 'svelte-material-icons/AlertBoxOutline.svelte'
   import PHD_3x4 from '@assets/phd_400x300.png'
   import { donorsList } from '@lib/store/mockupdata'
   export let category = ""
@@ -87,7 +88,7 @@ export function load({url}) {
     </h2>
     <div class="text-center">
     {#if category && categories.find(c => c.id === category)?.title && category !== 'all'}
-      หมวดหมู่: {categories.find(c => c.id === category)?.title}  
+      หมวดหมู่: {categories.find(c => c.id === category)?.title}
     {:else}
       คุณสามารถเลือกหมวดหมู่เพิ่มเติมได้ด้านล่าง
     {/if}
@@ -116,8 +117,10 @@ export function load({url}) {
   </div>
   <!-- 3x3 grid -->
   <div class="
-    grid grid-col-2 grid-flow-row gap-3
+    grid grid-flow-row gap-3
+    sm:grid-cols-2
     md:grid-cols-3
+    lg:grid-cols-4
   ">
     {#each dataToShow as data}
       <a href={`/donor/${data.link}`} class="
@@ -138,15 +141,18 @@ export function load({url}) {
           {data.problems.persona}&nbsp;&middot;&nbsp;{data.problems.details} 
         </div>
       </a>
-    {:else}
-      <div class="text-center p-5 font-bold">
-        ไม่พบข้อมูล
-      </div>
     {/each}
-    {#if dataToShow.length !== 0}
-      <div class="text-center pt-5 pb-2">
-        พบ {dataToShow.length} รายการ
-      </div>
-    {/if}
   </div>
+  {#if dataToShow.length !== 0}
+    <div class="text-center pt-5 pb-2">
+      พบ {dataToShow.length} รายการ
+    </div>
+  {:else}
+    <div class="text-center p-5 font-bold border-2 m-10 border-red-600 text-red-600 flex flex-col items-center rounded-xl max-w-md mx-auto">
+      <IcomAlert size="30px"/>
+      <span class="mt-3">
+        ขออภัย ไม่พบข้อมูลหรือยังไม่มีผู้ขอรับบริจาคในขณะนี้
+      </span>
+    </div>
+  {/if}
 </main>
