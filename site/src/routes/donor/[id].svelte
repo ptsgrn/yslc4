@@ -25,7 +25,7 @@
 </script>
 
 <main class="p-10 container mx-auto">
-  <div class="container">
+  <div class="">
     <img src={data?.image} alt={data?.name} class="rounded-2xl mx-auto" />
   </div>
   <h1 class="text-xl font-bold text-center my-7 mb-10">
