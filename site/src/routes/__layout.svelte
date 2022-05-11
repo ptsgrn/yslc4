@@ -61,7 +61,7 @@ export async function load({ url }) {
 <div class="bg-red-700 text-yellow-50 p-2 text-center text-sm { $dismissInPresentMode ? 'hidden' : 'block'}">
   <IconWarning size="25px"/> เว็บไซต์อยู่ในโหมดนำเสนอ หลาย ๆ ฟังก์ชันอาจใช้งานไม่ได้ และเราตั้งใจให้เป็นแบบนั้น <button class="underline" on:click={()=> $dismissInPresentMode = true }>ปิด</button>
 </div>
-<nav class="bg-white md:flex md:flex-row md:justify-between relative">
+<nav class="bg-white md:flex md:flex-row md:justify-between relative z-50">
   <a href="/" class="w-14 md:w-20 lg:w-[1fr] m-3 md:p-1 text-center mx-auto block text-xl text-blue-500 md:flex md:items-center relative">
     <img src={LogoIMG} alt="เติมเต็ม" class="rounded-full md:w-14" />
     <span class="ml-2 hidden w-28 lg:block whitespace-nowrap">เติมเต็ม</span>

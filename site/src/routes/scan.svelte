@@ -26,10 +26,10 @@
     <label class="
       w-full max-w-md m-5 aspect-[16/9] bg-gray-200 rounded-3xl cursor-pointer
       flex items-center justify-center shadow-sm hover:shadow-md transition-all duration-150
-      border-4 border-blue-300
-    " for="file">
+      border-4 border-blue-300 overflow-hidden
+    " for="file" title="กดเพื่อเลือกรูปภาพสำหรับอัปโหลด">
       {#if image}
-        <img src={image} alt="ภาพที่นำเข้า" class="w-full h-full" />
+        <img src={image} alt="ภาพที่นำเข้า" class="" />
       {:else}
         <IconImageFile size="35px" />
         <span class="text-center ml-2">
