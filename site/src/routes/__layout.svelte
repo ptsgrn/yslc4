@@ -103,9 +103,7 @@
     เมนู
   </button>
 </nav>
-<main class="lg:max-w-2xl md:max-w-xl mx-auto">
   <slot />
-</main>
 <footer class="flex flex-col md:flex-row bg-gray-300 justify-center items-center p-3">
   <div class="flex flex-row mb-3 md:mb-0">
     <img src={LogoIMG} alt="Termtem logo" class="h-14 w-14 rounded-full mx-4" />

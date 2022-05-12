@@ -1,12 +1,28 @@
-<main class="p-5">
+<script>
+  const socialLinks = [
+    {
+      name: 'facebook',
+      url: 'https://www.facebook.com/Thermtemcom-116128367755997/',
+      text: 'Thermtem.com'
+    },
+    {
+      name: 'บัญชีทางการบนไลน์',
+      url: 'https://line.me/ti/p/~@287htijc',
+      text: '@287htijc'
+    },
+    {
+      name: 'email',
+      url: 'mailto:thermtem.org@gmail.com',
+      text: 'thermtem.org@gmail.com'
+    }
+  ]
+</script><main class="p-5">
   <h1 class="text-4xl text-center m-10">
     เกี่ยวกับเรา
   </h1>
   <p class="">
-    <b>เติมเต็ม</b> เป็นเว็บไซต์ที่จัดตั้งโดยทีม <i>Dr. Pla</i> ในโครงการ DTAC Young Safe Internet Leaders CyberCamp ปีที่ 4 
-    เพื่อแก้ปัญหา Cyber acttack จากมิจฉาชีพที่มักนำรูปภาพที่น่าสงสารมาขอรับบริจาค
-    โดยผู้เสียหายไม่สามารถหาข้อมูลเพื่อยืนยันได้เลย เว็บไซต์นี้จะช่วยทั้งผู้ที่อยากบริจาคเพื่อช่วยเหลือผู้ที่ต้องการ และผู้รับบริจาคที่มั่นใจได้ว่าความลำบากของตนไม่ได้กลายเป็นเครื่องมือของมิจฉาชีพ
-    พร้อมทั้งเป็นช่องทางในการประชาสัมพันธ์ของผู้ที่ต้องการความช่วยเหลืออีกด้วย
+    "เติมเต็ม" เกิดขึ้นมาจากคน 8 คนที่พบกันในค่ายพัฒนาไซเบอร์ (Young Safe Internet Leader Camp 4) ของดีแทค (DTAC) เพื่อป้องกันช่องโหว่ของโจรกรรมทางไซเบอร์ 
+    เรื่องการบริจาคและการนำรูปภาพของผู้อื่นไปแอบอ้าง โดยเติมเต็ม จะเป็นตัวกลางการตรวจสอบและการเผยแพร่ เพื่อช่วยเหลือผู้ประสบความลำบากและไม่ผ่านมิจฉาชีพ 
   </p>
   <h2 class="text-xl font-semibold mt-5 mb-3">
       สมาชิกในทีม
@@ -23,5 +39,17 @@
     <li><tt>CCO</tt> dt-191 ภูมิ</li>
     <li><tt>CCO</tt> dt-073 อินดี้</li>
     <li><tt>CFO</tt> dt-044 ดุหยง</li>
+  </ul>
+  <h2 class="text-xl font-semibold mt-5 mb-3">
+      ช่องทางการรับข่าวสาร
+  </h2>
+  <ul class="list-['-_'] list-inside marker:text-gray-800 ml-3">
+    {#each socialLinks as link}
+      <li>
+        <b>{link.name}:</b>&nbsp;<a href={link.url}>
+          {link.text} <IconExternalLink size="1em"/>
+        </a>
+      </li>
+    {/each}
   </ul>
 </main>
