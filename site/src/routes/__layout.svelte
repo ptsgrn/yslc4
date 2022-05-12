@@ -46,7 +46,7 @@
 </svelte:head>
 
 <div class="bg-red-700 text-yellow-50 p-2 text-center text-sm { $dismissInPresentMode ? 'hidden' : 'block'}">
-  <IconWarning size="25px"/> เว็บไซต์อยู่ในโหมดนำเสนอ หลาย ๆ ฟังก์ชันอาจยังใช้งานไม่ได้ และเราตั้งใจให้เป็นแบบนั้น
+  <IconWarning size="25px"/> เว็บไซต์อยู่ในโหมดนำเสนอ หลาย ๆ ฟังก์ชันอาจยังใช้งานไม่ได้ ซึ่งจะมีการพัฒนาต่อในเวอร์ชันถัดไป
   <button class="underline" on:click={()=> {$dismissInPresentMode = true} }>ปิด</button>
   <a href="/about" class="underline">เกี่ยวกับเรา</a>
 </div>
@@ -131,7 +131,7 @@
         <b>Line&nbsp;Official:</b>&nbsp;<a href='https://line.me/ti/p/~@287htijc'>@287htijc</a>
       </li>
       <li>
-        <b>Facebook:</b>&nbsp;<a href='https://www.facebook.com/Thermtemcom-116128367755997/'>Thermtem.org</a>
+        <b>Facebook:</b>&nbsp;<a href='https://www.facebook.com/Thermtemcom-116128367755997/'>Thermtem.com</a>
       </li>
     </ul>
   </div>
