@@ -1,4 +1,5 @@
 <script>
+  import HeroIMG from '@assets/banner.jpg'
   import IconExternalLink from 'svelte-material-icons/LinkVariant.svelte';
   const socialLinks = [
     {
@@ -29,10 +30,15 @@
   </title>
 </svelte:head>
 <main class="p-5 max-w-2xl container mx-auto">
-  <h1 class="text-4xl text-center m-10">
-    เกี่ยวกับเรา
-  </h1>
-  <p class="">
+  <div class="relative w-full overflow-hidden">
+    <img src={HeroIMG} alt="Homeless sideroad" class="w-full" />
+    <div class="absolute top-[50%] -translate-y-[50%] inset-x-0 text-xs text-center backdrop-blur-sm w-[50%] p-2 mx-auto rounded-md drop-shadow-xl max-w-md">
+      <h1 class="text-3xl font-bold text-white drop-shadow-md">
+        เกี่ยวกับเรา
+      </h1>
+    </div>
+  </div>
+  <p class="mt-5">
     "เติมเต็ม" เกิดขึ้นมาจากคน 8 คนที่พบกันในค่ายพัฒนาไซเบอร์ (Young Safe Internet Leader Camp 4) ของดีแทค (DTAC) เพื่อป้องกันช่องโหว่ของโจรกรรมทางไซเบอร์ 
     เรื่องการบริจาคและการนำรูปภาพของผู้อื่นไปแอบอ้าง โดยเติมเต็ม จะเป็นตัวกลางการตรวจสอบและการเผยแพร่ เพื่อช่วยเหลือผู้ประสบความลำบากและไม่ผ่านมิจฉาชีพ 
   </p>

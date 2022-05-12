@@ -1,11 +1,12 @@
 <script>
+  import { onMount } from 'svelte';
   import { page } from '$app/stores'
   import "../app.css";
   import LogoIMG from "@assets/logo_uncrop.png";
   import DtacSafeInternetIMG from '@assets/dtacSIC.png'
   import YSLCIMG from '@assets/yscl-dtac-1024x574.png'
   import IconWarning from 'svelte-material-icons/AlertCircleOutline.svelte'
-  import { dismissInPresentMode } from '@lib/store/dismiss';
+  import { dismiss } from '@lib/store/dismiss';
   let navigations = [
     {
       text: 'หน้าหลัก',
@@ -38,6 +39,15 @@
     }
   ]
   let isMenuOpen = false
+  let key = 'user'
+  onMount(() => {
+    if (window.localStorage.getItem(key)) {
+      $dismiss = JSON.parse(window.localStorage.getItem(key) ?? '{}')
+    }
+    dismiss.subscribe(value => {
+      window.localStorage.setItem(key, JSON.stringify(value));
+    })
+  })
 </script>
 <svelte:head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,9 +55,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,800;1,400;1,800&family=Noto+Sans+Thai:wght@400;800&display=swap" rel="stylesheet">
 </svelte:head>
 
-<div class="bg-red-700 text-yellow-50 p-2 text-center text-sm { $dismissInPresentMode ? 'hidden' : 'block'}">
+<div class="bg-red-700 text-yellow-50 p-2 text-center text-sm { $dismiss['in_present_mode'] ? 'hidden' : 'block'}">
   <IconWarning size="25px"/> เว็บไซต์อยู่ในโหมดนำเสนอ หลาย ๆ ฟังก์ชันอาจยังใช้งานไม่ได้ ซึ่งจะมีการพัฒนาต่อในเวอร์ชันถัดไป
-  <button class="underline" on:click={()=> {$dismissInPresentMode = true} }>ปิด</button>
+  <button class="underline" on:click={()=> {$dismiss['in_present_mode'] = true} }>ปิด</button>
   <a href="/about" class="underline">เกี่ยวกับเรา</a>
 </div>
 <nav class="bg-white md:flex md:flex-row md:justify-between relative z-50">

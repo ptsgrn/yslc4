@@ -1,3 +1,3 @@
 import { writable } from 'svelte/store';
 
-export const dismissInPresentMode = writable(false);
+export const dismiss = writable({});
