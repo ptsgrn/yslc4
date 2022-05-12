@@ -9,13 +9,12 @@
   }
 </script>
 <script>
-  import PHD from '@assets/phd_400x300.png'
-  import IconAlert from 'svelte-material-icons/AlertBoxOutline.svelte'
+  // @ts-nocheck
   import { donorsList } from '@lib/store/mockupdata'
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
   export let linkId = '';
-  $: data = $donorsList.find(donor => `${donor.id}` === linkId);
+  $: data = $donorsList.find(donor => `${donor.id}` === linkId) || [];
   onMount(() => {
     if (!data) {
       goto('/donors');
@@ -37,14 +36,10 @@
       ข้อมูลทั่วไป
     </h2>
     <strong>
-      {#if Array.isArray(data?.problems)}
-        {data?.problems.persona.join(', ')}
-      {:else}
         {data?.problems.persona}
-      {/if}
-      </strong>
+    </strong>
     <p>
-      {data?.problems.details}
+      {data?.problems}
     </p>
 
     <h2 class="text-xl mt-4 mb-2">
@@ -56,9 +51,6 @@
         <li><b>เลขที่บัญชี:</b> {account.number || '-ไม่ได้ระบุ-'}</li>
         <li><b>ธนาคาร:</b> {account.bank || '-ไม่ได้ระบุ-'}</li>
       {/each}
-      {#if data?.goal}
-        <li><b>ยอดเงินที่ต้องการ:</b> {data?.goal}</li>
-      {/if}
     </ul>
 
     <h2 class="text-xl mt-4 mb-2">

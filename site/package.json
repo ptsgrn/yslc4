@@ -2,6 +2,12 @@
   "name": "site",
   "version": "0.0.1",
   "private": true,
+  "license": "MIT",
+  "author": {
+    "name": "Patsagorn Yuenyong",
+    "email": "contact+s9t34onc@patsag.one",
+    "url": "https://patsag.one"
+  },
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",

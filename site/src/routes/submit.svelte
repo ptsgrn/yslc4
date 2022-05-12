@@ -31,7 +31,14 @@
     iAddress: '',
     iPhone: '',
     iType: '',
-    iTypeOther: ''
+    iTypeOther: '',
+    iProblem: '',
+    iProblemDetail: '',
+    iBankNumber: '',
+    iBankName: '',
+    iBankOwnerName: '',
+    iAmount: '',
+    iNote: ''
   })
   const styleLabel = "mb-0.5 font-bold"
   const styleFieldset = "flex flex-col my-3"

@@ -14,9 +14,8 @@
       image = URL.createObjectURL(files[0]);
     }
   }
-  let is
 </script>
-<main class="container py-10">
+<main class="container py-10 p-5">
   <div class="flex flex-col items-center">
     <IconShutter size="40px" />
     <h1 class="text-center text-2xl font-bold">

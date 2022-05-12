@@ -60,9 +60,6 @@ export function load({url}) {
   ]
   /**
    * @typedef {import('@lib/store/mockupdata').MockupDataDonorsList} MockupDataDonorsList
-   * @typedef {import('@lib/store/mockupdata').MockupDonorBankAccount} MockupDonorBankAccount
-   * @typedef {import('@lib/store/mockupdata').MockupDonorDate} MockupDonorDate
-   * @typedef {import('@lib/store/mockupdata').MockupDonorsProblem} MockupDonorsProblem
    */
   /** @type { MockupDataDonorsList[] } */
   let dataToShow = []
