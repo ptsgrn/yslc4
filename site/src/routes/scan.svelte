@@ -15,6 +15,11 @@
     }
   }
 </script>
+<svelte:head>
+  <title>
+    สแกนแชต
+  </title>
+</svelte:head>
 <main class="container py-10 p-5">
   <div class="flex flex-col items-center">
     <IconShutter size="40px" />

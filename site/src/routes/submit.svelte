@@ -44,6 +44,11 @@
   const styleFieldset = "flex flex-col my-3"
   const styleInput = "border-2 rounded-md border-gray-400 p-1"
 </script>
+<svelte:head>
+  <title>
+    ส่งเรื่องให้เรา
+  </title>
+</svelte:head>
 <main class="
   max-w-2xl
   container mx-auto

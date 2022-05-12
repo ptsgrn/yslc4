@@ -72,7 +72,7 @@ export function load({url}) {
   }
 </script>
 <svelte:head>
-  <title>รายการผู้ขอรับบริจาค</title>
+  <title>รายการผู้ขอรับบริจาค{category === 'all' || !category || !categories.find(c => c.id === category)?.id ? '' : `ในหมวด: ${categories.find(c => c.id === category)?.title}`}</title>
 </svelte:head>
 <main>
   <div class="relative w-full overflow-hidden">

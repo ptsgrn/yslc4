@@ -20,9 +20,12 @@
       goto('/donors');
     }
   });
-
 </script>
-
+<svelte:head>
+  <title>
+    {data.name}
+  </title>
+</svelte:head>
 <main class="p-10 container mx-auto">
   <div class="">
     <img src={data?.image} alt={data?.name} class="rounded-2xl mx-auto" />

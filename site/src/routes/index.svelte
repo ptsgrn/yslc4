@@ -6,6 +6,11 @@
   import Introduce1 from '@assets/introduces1.png'
   import Introduce2 from '@assets/introduces2.png'
 </script>
+<svelte:head>
+  <title>
+    เติมเต็มความหวัง ให้การบริจาคของคุณมีคุณค่า
+  </title> 
+</svelte:head>
 <main class="bg-yellow-200 container mx-auto">
   <img src={Introduce1} alt="introduce" class="w-full h-full" />
   <div class="py-10 flex flex-col justify-center items-center">

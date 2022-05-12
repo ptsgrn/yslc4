@@ -24,6 +24,11 @@
     color: rgb(24, 87, 187);
   }
 </style>
+<svelte:head>
+  <title>
+    ติดต่อเรา
+  </title>
+</svelte:head>
 <main class="
   max-w-2xl
   container mx-auto
