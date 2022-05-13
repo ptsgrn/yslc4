@@ -42,7 +42,7 @@
   })
   const styleLabel = "mb-0.5 font-bold"
   const styleFieldset = "flex flex-col my-3"
-  const styleInput = "border-2 rounded-md border-gray-400 p-1"
+  const styleInput = "border-2 rounded-md border-gray-400 p-1 focus:border-gray-500 focus:outline-none"
 </script>
 <svelte:head>
   <title>
@@ -129,7 +129,7 @@
       </fieldset>
       <fieldset class={styleFieldset}>
       <label for="iNote">รายละเอียดของที่ต้องการอื่น ๆ</label>
-        <input type="number" name="inote" id="iNote" class="{styleInput}" bind:value={$userSelect['iNote']}>
+        <input type="text" name="inote" id="iNote" class="{styleInput}" bind:value={$userSelect['iNote']}>
       </fieldset>
     </div>
     <h2 class="text-xl font-semibold mt-5">
