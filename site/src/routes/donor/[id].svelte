@@ -26,7 +26,7 @@
     {data.name}
   </title>
 </svelte:head>
-<main class="p-10 container mx-auto md:max-w-5xl">
+<main class="p-10 container mx-auto md:max-w-2xl">
   <div class="">
     <img src={data?.image} alt={data?.name} class="rounded-2xl mx-auto md:max-w-lg sm:max-w-md" />
   </div>
