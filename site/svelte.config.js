@@ -1,5 +1,5 @@
 import adapter from '@sveltejs/adapter-auto';
-import path from 'path'
+import path from 'path';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -11,7 +11,7 @@ const config = {
 					'@': path.resolve('./src'),
 					'@components': path.resolve('./src/components'),
 					'@lib': path.resolve('./src/lib'),
-					'@assets': path.resolve('./src/lib/assets'),
+					'@assets': path.resolve('./src/lib/assets')
 				}
 			}
 		}

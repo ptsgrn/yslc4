@@ -1,7 +1,7 @@
 <script>
-  import { goto } from '$app/navigation';
-  import { onMount } from 'svelte';
-  onMount(() => {
-    goto('/donors');
-  });
+	import { goto } from '$app/navigation';
+	import { onMount } from 'svelte';
+	onMount(() => {
+		goto('/donors');
+	});
 </script>
