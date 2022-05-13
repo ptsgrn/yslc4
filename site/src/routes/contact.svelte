@@ -50,7 +50,7 @@
 			>
 		</li>
 		<li>
-			กรุณาติดต่อผมที่ <a href="mailto:contact+s9t34onc@patsag.one"
+			กรุณาติดต่อผู้ดูแลเว็บที่ <a href="mailto:contact+s9t34onc@patsag.one"
 				>contact+s9t34onc@patsag.one <IconEmail size="1em" /></a
 			>
 		</li>
