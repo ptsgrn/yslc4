@@ -26,9 +26,9 @@
     {data.name}
   </title>
 </svelte:head>
-<main class="p-10 container mx-auto">
+<main class="p-10 container mx-auto md:max-w-2xl">
   <div class="">
-    <img src={data?.image} alt={data?.name} class="rounded-2xl mx-auto" />
+    <img src={data?.image} alt={data?.name} class="rounded-2xl mx-auto md:max-w-lg sm:max-w-md" />
   </div>
   <h1 class="text-xl font-bold text-center my-7 mb-10">
     {data?.name}
@@ -42,17 +42,17 @@
         {data?.problems.persona}
     </strong>
     <p>
-      {data?.problems}
+      {data?.problems.details}
     </p>
 
     <h2 class="text-xl mt-4 mb-2">
       ช่องทางการบริจาค
     </h2>
-    <ul>
+    <ul class="ml-2">
       {#each data?.bankAccounts as account}
         <li><b>ชื่อบัญชี:</b> {account.name || '-ไม่ได้ระบุ-'}</li>
         <li><b>เลขที่บัญชี:</b> {account.number || '-ไม่ได้ระบุ-'}</li>
-        <li><b>ธนาคาร:</b> {account.bank || '-ไม่ได้ระบุ-'}</li>
+        <li class="mb-2 last:mb-0"><b>ธนาคาร:</b> {account.bank || '-ไม่ได้ระบุ-'}</li>
       {/each}
     </ul>
 
@@ -60,7 +60,7 @@
       ติดต่อ
     </h2>
     <ul>
-      <li><b>หมายเลขโทรศัพท์:</b> {data?.contact || '-ไม่ได้ระบุ-'}</li>
+      <li><b>ติอต่อ:</b> {Array.isArray(data?.contact) ? data?.contact.join(', ') : data?.contact || '-ไม่ได้ระบุ-'}</li>
       <li><b>สถานที่:</b> {data?.address || '-ไม่ได้ระบุ-'}</li>
     </ul>
 
