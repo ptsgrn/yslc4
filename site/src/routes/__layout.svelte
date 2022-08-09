@@ -24,10 +24,6 @@
 			text: 'ยื่นขอรับบริจาค',
 			link: '/submit'
 		},
-		// {
-		//   text: 'ประกาศ',
-		//   link: '/announcements'
-		// },
 		{
 			text: 'ติดต่อเรา',
 			link: '/contact'

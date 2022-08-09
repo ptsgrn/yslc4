@@ -1,12 +1,4 @@
 <script context="module">
-	/** @type {import('@sveltejs/kit').Load} */
-	export function load({ url }) {
-		return {
-			props: {
-				category: url.searchParams.get('category')
-			}
-		};
-	}
 </script>
 
 <script>
