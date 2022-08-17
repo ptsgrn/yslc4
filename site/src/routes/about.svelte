@@ -1,11 +1,6 @@
 <script context="module">
 	/** @type {import('@sveltejs/kit').Load} */
-	export async function load({ fetch }) {
-		let content = await (await fetch('/api/about')).json();
-		return {
-			props: {}
-		};
-	}
+	export async function load({ fetch }) {	}
 </script>
 
 <script>

@@ -4,7 +4,14 @@
 		{
 			"type": "chrome",
 			"request": "launch",
-			"name": "Launch Chrome against dev server",
+			"name": "dev:chrome",
+			"url": "http://localhost:5173",
+			"webRoot": "${workspaceFolder}"
+		},
+		{
+			"type": "msedge",
+			"request": "launch",
+			"name": "dev:edge",
 			"url": "http://localhost:5173",
 			"webRoot": "${workspaceFolder}"
 		}

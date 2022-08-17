@@ -237,7 +237,7 @@ const _donorsList = [
 		bankAccounts: [
 			{
 				name: 'นายพงศ์ธัช ลาภยิ่ง',
-				number: '5304036664​',
+				number: '5304036664',
 				bank: 'ไทยพาณิชย์​'
 			}
 		],
