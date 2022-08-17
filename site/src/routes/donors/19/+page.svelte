@@ -475,7 +475,7 @@
 
 	<div class="container">
 		<h2 class="text-xl mt-4 mb-2">รายละเอียด</h2>
-		<MarkdownRenderer source="{campaignData.data.datails}"/>
+		<MarkdownRenderer source="{campaignData.data.datails.replace(/\n/g,'\n\n')}"/>
 
 		<h2 class="text-xl mt-4 mb-2">ช่องทางการบริจาค</h2>
 		<ul class="ml-2">
@@ -499,41 +499,29 @@
 					</ul>
 				</li>
 			{/if}
-			{#if campaignData.donateStuff?.address?.length >= 1}
+			{#if campaignData.data.donateStuff?.address?.length >= 1}
 				<li class="mb-2">
-					<strong>ที่อยู่</strong>
+					หรือบริจากสิ่งของที่อยู่ด้านล่าง:
 					<ul class="ml-2">
+						<strong>
+							{campaignData.data.donateStuff.name}
+						</strong>
 						{#each campaignData.data.donateStuff.address as address}
 							<li class="mb-2">
-								<strong>{address.houseNumber}</strong>
-								<ul class="ml-2">
-									<li>
-										<strong>หมู่ที่</strong> {address.moo}
-									</li>
-									<li>
-										<strong>หมู่บ้าน</strong> {address.villageName}
-									</li>
-									<li>
-										<strong>ถนน</strong> {address.road}
-									</li>
-									<li>
-										<strong>ตำบล</strong> {address.subdistrict}
-									</li>
-									<li>
-										<strong>อำเภอ</strong> {address.district}
-									</li>
-									<li>
-										<strong>จังหวัด</strong> {address.province}
-									</li>
-									<li>
-										<strong>รหัสไปรษณีย์</strong> {address.postalCode}
-									</li>
-								</ul>
+								{address.houseNumber}
+								หมู่ที่ {address.moo ?? '-'}
+								หมู่บ้าน {address.villageName ?? '-'}
+								ถนน {address.road ?? '-'}
+								ตำบล{address.subdistrict}
+								อำเภอ{address.district}
+								จังหวัด{address.province}
+								รหัสไปรษณีย์ {address.postalCode}
 							</li>
 						{/each}
 					</ul>
 				</li>
 			{/if}
 		</ul>
+		<small class="">หมวดหมู่: {campaignData}</small>
   </div>
 </main>
