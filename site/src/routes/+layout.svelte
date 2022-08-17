@@ -1,4 +1,5 @@
 <script>
+	import '@splidejs/svelte-splide/css';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import '../app.css';

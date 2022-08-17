@@ -13,15 +13,15 @@ import { PUBLIC_API_ENDPOINT } from '$env/static/public';
  */
 
 export const endpointFetch = (path, options) => {
-  if (typeof path !== 'string') {
-    throw new TypeError('path must be a string');
-  }
-  return fetch(`${PUBLIC_API_ENDPOINT}/${path}`, {
-    mode: 'cors',
-    headers: {
-      'Content-Type': 'application/json',
-      'Cache-Control': 'max-age=300'
-    },
-    ...options
-  })
-}
+	if (typeof path !== 'string') {
+		throw new TypeError('path must be a string');
+	}
+	return fetch(`${PUBLIC_API_ENDPOINT}/${path}`, {
+		mode: 'cors',
+		headers: {
+			'Content-Type': 'application/json',
+			'Cache-Control': 'max-age=300'
+		},
+		...options
+	});
+};

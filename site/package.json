@@ -36,6 +36,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@splidejs/svelte-splide": "^0.2.5",
 		"@tailwindcss/line-clamp": "^0.4.0",
 		"svelte-markdown": "^0.2.2",
 		"svelte-material-icons": "^2.0.2"

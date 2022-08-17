@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@splidejs/svelte-splide': ^0.2.5
   '@sveltejs/adapter-auto': next
   '@sveltejs/kit': next
   '@tailwindcss/line-clamp': ^0.4.0
@@ -20,6 +21,7 @@ specifiers:
   vite: ^3.0.3
 
 dependencies:
+  '@splidejs/svelte-splide': 0.2.5
   '@tailwindcss/line-clamp': 0.4.0_tailwindcss@3.1.6
   svelte-markdown: 0.2.2_svelte@3.49.0
   svelte-material-icons: 2.0.4_svelte@3.49.0
@@ -145,6 +147,16 @@ packages:
       estree-walker: 2.0.2
       picomatch: 2.3.1
     dev: true
+
+  /@splidejs/splide/4.0.7:
+    resolution: {integrity: sha512-aJAOGJN2lwjwou3mxQofc3uhe+RXpw9in0WfysFX7AMT/mj7wSqoetfm41s7J8jU6FJ3ZWaLYgSJIpBAQ5wyqw==}
+    dev: false
+
+  /@splidejs/svelte-splide/0.2.5:
+    resolution: {integrity: sha512-GdbybahfeKu9kwumllaLIIHc+N9bh5hsdPTI9HFA3RSPyhUqQ02GwBel6l8grPT9ZlR22jT3s0WYutWrNmSx5g==}
+    dependencies:
+      '@splidejs/splide': 4.0.7
+    dev: false
 
   /@sveltejs/adapter-auto/1.0.0-next.64:
     resolution: {integrity: sha512-Q8DwcS6wl1GovzS9JJzaD/WL/Lfk1ur4nAF1HtmsUvZDpsPBVDqnK2AhYU4G3oFNiuHstrjAogMy5th8ptSFGw==}

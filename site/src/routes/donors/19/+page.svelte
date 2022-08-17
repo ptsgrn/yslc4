@@ -2,7 +2,10 @@
 	/** @type {import('./$types').PageData} */
 	export let data;
 	import { donorsList } from '@lib/store/mockupdata';
-  import MarkdownRenderer from '@lib/components/MarkdownRenderer.svelte';
+	import MarkdownRenderer from '@lib/components/MarkdownRenderer.svelte';
+	import { onMount } from 'svelte';
+	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
+
 	export let linkId = '19';
 	let campaignData = {
 		data: {
@@ -467,7 +470,11 @@
 </svelte:head>
 <main class="p-10 container mx-auto md:max-w-2xl">
 	<div class="">
-		<img src="http://localhost:1337{campaignData.data.heroImage.formats.large.url}" alt={campaignData.data.heroImage.alternativeText} class="rounded-2xl mx-auto md:max-w-lg sm:max-w-md" />
+		<img
+			src="http://localhost:1337{campaignData.data.heroImage.formats.large.url}"
+			alt={campaignData.data.heroImage.alternativeText}
+			class="rounded-2xl mx-auto md:max-w-lg sm:max-w-md max-h-80"
+		/>
 	</div>
 	<h1 class="text-xl font-bold text-center my-7 mb-10">
 		{campaignData.data.title}
@@ -475,7 +482,18 @@
 
 	<div class="container">
 		<h2 class="text-xl mt-4 mb-2">รายละเอียด</h2>
-		<MarkdownRenderer source="{campaignData.data.datails.replace(/\n/g,'\n\n')}"/>
+		<Splide aria-label="ความเสียหาย">
+			{#each campaignData.data.detailImages as image}
+				<SplideSlide>
+					<img
+						src="http://localhost:1337{image.formats.large.url}"
+						alt={image.alternativeText}
+						class="rounded-2xl mx-auto md:max-w-lg sm:max-w-md max-h-72 m-10"
+					/>
+				</SplideSlide>
+			{/each}
+		</Splide>
+		<MarkdownRenderer source={campaignData.data.datails.replace(/\n/g, '\n\n')} />
 
 		<h2 class="text-xl mt-4 mb-2">ช่องทางการบริจาค</h2>
 		<ul class="ml-2">
@@ -488,10 +506,12 @@
 								<strong>{donateMoney.accountName}</strong>
 								<ul class="ml-2">
 									<li>
-										<strong>เลขที่บัญชี</strong> {donateMoney.accountID}
+										<strong>เลขที่บัญชี</strong>
+										{donateMoney.accountID}
 									</li>
 									<li>
-										<strong>ธนาคาร</strong> {donateMoney.bank}
+										<strong>ธนาคาร</strong>
+										{donateMoney.bank}
 									</li>
 								</ul>
 							</li>
@@ -522,6 +542,12 @@
 				</li>
 			{/if}
 		</ul>
-		<small class="">หมวดหมู่: {campaignData}</small>
-  </div>
+		<h2 class="text-xl mt-4 mb-2">แหล่งที่มา</h2>
+		<MarkdownRenderer source={campaignData.data.source.replace(/\n/g, '\n\n')} />
+		<small class=""
+			>หมวดหมู่: <a href="/donors?category=accident"
+				>{campaignData.data.categories[0].displayTitle}</a
+			></small
+		>
+	</div>
 </main>

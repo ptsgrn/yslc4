@@ -1,5 +1,5 @@
 <script>
-	const title = 'เกี่ยวกับ'
+	const title = 'เกี่ยวกับ';
 	import HeroIMG from '@assets/banner.jpg';
 	import IconExternalLink from 'svelte-material-icons/LinkVariant.svelte';
 	const socialLinks = [

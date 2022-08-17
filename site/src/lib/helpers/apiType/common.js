@@ -1,4 +1,3 @@
-
 /**
  * @typedef {'th'|'en'} LocaleLanguage Available languages
  */
@@ -6,7 +5,7 @@
  * @typedef {string} richText Markdown string
  */
 /**
- * @typedef {string} DateFromISOString date in format 2022-08-09T13:51:37.644Z or ISO 8601, 
+ * @typedef {string} DateFromISOString date in format 2022-08-09T13:51:37.644Z or ISO 8601,
  *    can be parsed to date by new Date(date)
  */
 /**

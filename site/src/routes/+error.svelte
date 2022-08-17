@@ -1,7 +1,7 @@
 <script>
-	import { page } from '$app/stores'
-	let code = $page.status
-	let message = $page.error?.message
+	import { page } from '$app/stores';
+	let code = $page.status;
+	let message = $page.error?.message;
 </script>
 
 <svelte:head>
