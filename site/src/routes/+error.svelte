@@ -1,18 +1,7 @@
-<script context="module">
-	/** @type {import('@sveltejs/kit').Load} */
-	export function load({ error, status }) {
-		return {
-			props: {
-				code: status,
-				message: error?.message
-			}
-		};
-	}
-</script>
-
 <script>
-	export let code = '';
-	export let message = '';
+	import { page } from '$app/stores'
+	let code = $page.status
+	let message = $page.error?.message
 </script>
 
 <svelte:head>

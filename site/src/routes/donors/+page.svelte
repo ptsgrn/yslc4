@@ -1,16 +1,6 @@
-<script context="module">
-	/** @type {import('@sveltejs/kit').Load} */
-	export async function load({ params, fetch }) {
-		let categories = await (await fetch('/api/categories')).json();
-		return {
-			props: {
-				categoryData: categories.data
-			}
-		}
-	}
-</script>
-
 <script>
+	/** @type {import('./$types').PageData} */
+	export let data;
 	import { page } from '$app/stores';
 	import HeroIMG from '@assets/banner.jpg';
 	import IconWheelchair from 'svelte-material-icons/WheelchairAccessibility.svelte';
@@ -24,7 +14,7 @@
 	import PHD_3x4 from '@assets/phd_400x300.png';
 	import { donorsList } from '@lib/store/mockupdata';
 	$: category = $page.url.searchParams.get('category');
-	// export let categoryData = [];
+	let categoryData = data.categoryData;
 	const categories = [
 		{
 			icon: IconAll,

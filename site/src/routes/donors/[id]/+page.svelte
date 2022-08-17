@@ -1,19 +1,8 @@
-<script context="module">
-	/** @type {import('@sveltejs/kit').Load} */
-	export async function load({ params }) {
-		return {
-			props: {
-				linkId: params.id
-			}
-		};
-	}
-</script>
-
 <script>
 	import { donorsList } from '@lib/store/mockupdata';
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
-	export let linkId = '';
+	let linkId = 19;
 	$: data = $donorsList.find((donor) => `${donor.id}` === linkId) || [];
 	onMount(() => {
 		if (!data) {

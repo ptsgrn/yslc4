@@ -1,84 +1,10 @@
-<script context="module">
-	/** @type {import('@sveltejs/kit').Load} */
-	export async function load({ params, fetch }) {
-		return {
-			props: {
-				linkId: params.id ?? 19,
-				data: {}
-			}
-		};
-	}
-	/**
-	 * @typedef {Object} ImageDataFormats
-	 * @property {ImageSizeData} thumbnail
-	 * @property {ImageSizeData} small
-	 * @property {ImageSizeData} medium
-	 * @property {ImageSizeData} large
-	 */
-	/**
-	 * @typedef {Object} ImageSizeData
-	 * @property {string} name name of the image
-	 * @property {string} hash hash of the image
-	 * @property {string} ext extension of the image
-	 * @property {string} mime mime type of the image
-	 * @property {string?} path path to the image
-	 * @property {number} width width of the image
-	 * @property {number} height height of the image
-	 * @property {number} size size of the image in bytes
-	 * @property {string} url
-	 */
-	/**
-	 * @typedef {Object} ImageData
-	 * @property {number} id รหัสภาพ
-	 * @property {string} name ชื่อไฟล์
-	 * @property {string} alternativeText alt text
-	 * @property {string} caption คำอธิบายภาพ
-	 * @property {number} width ความกว้างภาพ
-	 * @property {number} height ความสูงภาพ
-	 * @property {ImageDataFormats} formats รูปแบบของภาพ
-	 * @property {string} hash Image hash
-	 * @property {string} ext นามสกุลของไฟล์
-	 * @property {string} mime ชนิดของไฟล์
-	 * @property {number} size ขนาดของไฟล์
-	 * @property {string} url ที่อยู่อ้างอิงถึงไฟล์
-	 * @property {string?} previewUrl วันที่สร้าง
-	 * @property {string} provider ที่เก็บภาพ
-	 * @property {string?} provider_metadata ข้อมูลของผู้ให้บริการภาพ
-	 * @property {string} createdAt วันที่สร้าง
-	 * @property {string} updatedAt วันที่แก้ไข
-	 * @property {string?} placeholder
-	 */
-	/**
-	 * @typedef {Object} CampaignData
-	 * @property {string} title campaign title
-	 * @property {string} recipient ผู้รับบริจาค
-	 * @property {string} requester ผู้เสนอขอรับบริจาค
-	 * @property {string} goal เป้าหมายการบริจาค
-	 * @property {string} end วันสิ้นสุดการบริจาค
-	 * @property {number} goal เงินเป้าหมายการบริจาค
-	 * @property {string} details รายละเอียดการรับบริจาค
-	 * @property {string} campaignID รหัสการรับบริจาค ใช้ใน url
-	 * @property {string} createdAt วันที่สร้าง
-	 * @property {string} updatedAt อัปเดตล่าสุด
-	 * @property {string} publishedAt วันที่เผยแพร่
-	 * @property {string} source แหล่งที่มาของข้อมูล
-	 * @property {import('../api/categories/[catId]').ApiCategoryAttributeData[]} category หมวดหมู่ของการรับบริจาค
-	 * @property {ImageData} heroImage ภาพหน้าปกการรับบริจาค
-	 * @property {ImageData[]} detailImages ภาพอื่น ๆ ที่เกี่ยวข้องกับการรับบริจาค
-	 * @property {DonateData} donateStaff ข้อมูล
-	 */
-	/**
-	 * @typedef {Object} DonateData
-	 * @property {id} id
-	 * @property {name}
-	 */
-</script>
-
 <script>
+	/** @type {import('./$types').PageData} */
+	export let data;
 	import { donorsList } from '@lib/store/mockupdata';
   import MarkdownRenderer from '@lib/components/MarkdownRenderer.svelte';
 	export let linkId = '19';
-	let data = {
+	let campaignData = {
 		data: {
 			id: 2,
 			title: 'บ้านไฟไหม้ ขอรับบริจาค',
@@ -536,44 +462,78 @@
 
 <svelte:head>
 	<title>
-		{data.data.title}
+		{campaignData.data.title}
 	</title>
 </svelte:head>
 <main class="p-10 container mx-auto md:max-w-2xl">
 	<div class="">
-		<img src="http://localhost:1337{data.data.heroImage.formats.large.url}" alt={data.data.heroImage.alternativeText} class="rounded-2xl mx-auto md:max-w-lg sm:max-w-md" />
+		<img src="http://localhost:1337{campaignData.data.heroImage.formats.large.url}" alt={campaignData.data.heroImage.alternativeText} class="rounded-2xl mx-auto md:max-w-lg sm:max-w-md" />
 	</div>
 	<h1 class="text-xl font-bold text-center my-7 mb-10">
-		{data.data.title}
+		{campaignData.data.title}
 	</h1>
 
 	<div class="container">
 		<h2 class="text-xl mt-4 mb-2">รายละเอียด</h2>
-		<MarkdownRenderer source="{data.data.datails}"/>
+		<MarkdownRenderer source="{campaignData.data.datails}"/>
 
 		<h2 class="text-xl mt-4 mb-2">ช่องทางการบริจาค</h2>
 		<ul class="ml-2">
-			{#each data.data.donateMoney as account}
-				<li><b>ชื่อบัญชี:</b> {account.accountName || '-ไม่ได้ระบุ-'}</li>
-				<li><b>เลขที่บัญชี:</b> {account.accountID || '-ไม่ได้ระบุ-'}</li>
-				<li class="mb-2 last:mb-0"><b>ธนาคาร:</b> {account.bank || '-ไม่ได้ระบุ-'}</li>
-			{/each}
+			{#if campaignData.data.donateMoney?.length >= 1}
+				<li class="mb-2">
+					<strong>บัญชีธนาคาร</strong>
+					<ul class="ml-2">
+						{#each campaignData.data.donateMoney as donateMoney}
+							<li class="mb-2">
+								<strong>{donateMoney.accountName}</strong>
+								<ul class="ml-2">
+									<li>
+										<strong>เลขที่บัญชี</strong> {donateMoney.accountID}
+									</li>
+									<li>
+										<strong>ธนาคาร</strong> {donateMoney.bank}
+									</li>
+								</ul>
+							</li>
+						{/each}
+					</ul>
+				</li>
+			{/if}
+			{#if campaignData.donateStuff?.address?.length >= 1}
+				<li class="mb-2">
+					<strong>ที่อยู่</strong>
+					<ul class="ml-2">
+						{#each campaignData.data.donateStuff.address as address}
+							<li class="mb-2">
+								<strong>{address.houseNumber}</strong>
+								<ul class="ml-2">
+									<li>
+										<strong>หมู่ที่</strong> {address.moo}
+									</li>
+									<li>
+										<strong>หมู่บ้าน</strong> {address.villageName}
+									</li>
+									<li>
+										<strong>ถนน</strong> {address.road}
+									</li>
+									<li>
+										<strong>ตำบล</strong> {address.subdistrict}
+									</li>
+									<li>
+										<strong>อำเภอ</strong> {address.district}
+									</li>
+									<li>
+										<strong>จังหวัด</strong> {address.province}
+									</li>
+									<li>
+										<strong>รหัสไปรษณีย์</strong> {address.postalCode}
+									</li>
+								</ul>
+							</li>
+						{/each}
+					</ul>
+				</li>
+			{/if}
 		</ul>
-
-		<h2 class="text-xl mt-4 mb-2">ติดต่อ</h2>
-		<ul>
-			<li>
-				<b>ติอต่อ:</b>
-				{Array.isArray(data?.contact) ? data?.contact.join(', ') : data?.contact || '-ไม่ได้ระบุ-'}
-			</li>
-			<li><b>สถานที่:</b> {data?.address || '-ไม่ได้ระบุ-'}</li>
-		</ul>
-
-		{#if data?.others}
-			<h2 class="text-xl mt-4 mb-2">อื่น ๆ</h2>
-			<p>
-				{data?.others}
-			</p>
-		{/if}
   </div>
 </main>

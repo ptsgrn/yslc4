@@ -1,8 +1,3 @@
-<script context="module">
-	/** @type {import('@sveltejs/kit').Load} */
-	export async function load({ fetch }) {	}
-</script>
-
 <script>
 	const title = 'เกี่ยวกับ'
 	import HeroIMG from '@assets/banner.jpg';
