@@ -5,7 +5,9 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		files: {
-			hooks: 'src/lib/hooks.js'
+			hooks: {
+				server: 'src/lib/hooks.server.js'
+			}
 		}
 	}
 };
