@@ -1,9 +1,8 @@
 <script>
 	import { page } from '$app/stores';
-	import { Heading, Span } from 'flowbite-svelte';
+	import { Heading } from 'flowbite-svelte';
 	let code = $page.status;
 	let message = $page.error?.message;
-	let stack = $page.routeId
 </script>
 
 <svelte:head>

@@ -1,12 +1,8 @@
 <script>
 	/** @type {import('./$types').PageData} */
-	export let data;
-	import { donorsList } from '@lib/store/mockupdata';
 	import MarkdownRenderer from '@lib/components/MarkdownRenderer.svelte';
-	import { onMount } from 'svelte';
 	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
 
-	export let linkId = '19';
 	let campaignData = {
 		data: {
 			id: 2,

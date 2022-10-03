@@ -1,23 +1,16 @@
 <script>
 	import '@splidejs/svelte-splide/css';
 	import {
-		Button,
-		Chevron,
 		DarkMode,
 		Footer,
 		FooterCopyright,
-		FooterIcon,
 		FooterLink,
 		FooterLinkGroup,
-		Heading,
-		Mark,
-		MegaMenu,
 		Navbar,
 		NavBrand,
 		NavHamburger,
 		NavLi,
-		NavUl,
-		Span
+		NavUl
 	} from 'flowbite-svelte';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
@@ -72,9 +65,9 @@
 				<NavLi href="/contact">ติดต่อเรา</NavLi>
 				<NavLi href="/scan">แสกน</NavLi>
 			</NavUl>
-				<DarkMode
+			<DarkMode
 				btnClass="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5 sm:p-none z-40"
-				/>
+			/>
 		</div>
 	</Navbar>
 </div>

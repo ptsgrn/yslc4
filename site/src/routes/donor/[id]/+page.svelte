@@ -125,7 +125,7 @@
 </svelte:head>
 <main class="p-10 container mx-auto md:max-w-2xl">
 	<div class="">
-		<DynamicImage formats={donor.heroImage}/>
+		<DynamicImage formats={donor.heroImage} />
 	</div>
 	<Heading class="text-xl font-bold text-center my-7 mb-10">
 		{donor.title}
@@ -149,23 +149,30 @@
 		</ul>
 		<Heading tag="h3">สิ่งของ</Heading>
 		{#if donor.donateStuff.address.length !== 0}
-			เนื่องจากแคมเปญนี้รับการบริจาคหลายช่องทาง คุณสามารถเลือกช่องทางใดช่องทางหนึ่งเพื่อบริจาคได้ 
+			เนื่องจากแคมเปญนี้รับการบริจาคหลายช่องทาง คุณสามารถเลือกช่องทางใดช่องทางหนึ่งเพื่อบริจาคได้
 			กรณีมีข้อสงสัย กรุณาติดต่อผู้รับบริจากโดยตรงที่ส่วน<A href="#contact">ติดต่อ</A>ด้านล่าง
 		{/if}
 		<ol class="ml-5 mt-2 list-decimal list-outside marker:">
 			{#each donor.donateStuff.address as address}
 				<li>
-					<b>บ้านเลขที่</b> {address.houseNumber}
-					<b>หมู่</b> {address.moo}
-					<b>ถนน</b> {address.road}
-					<b>ตำบล</b> {address.subdistrict}
-					<b>อำเภอ</b> {address.district}
-					<b>จังหวัด</b> {address.province}
-					<b>รหัสไปรษณีย์</b> {address.postalCode}
+					<b>บ้านเลขที่</b>
+					{address.houseNumber}
+					<b>หมู่</b>
+					{address.moo}
+					<b>ถนน</b>
+					{address.road}
+					<b>ตำบล</b>
+					{address.subdistrict}
+					<b>อำเภอ</b>
+					{address.district}
+					<b>จังหวัด</b>
+					{address.province}
+					<b>รหัสไปรษณีย์</b>
+					{address.postalCode}
 				</li>
 			{/each}
 		</ol>
-		<Anchor id="contact"/>
+		<Anchor id="contact" />
 		<Heading tag="h2" class="text-xl mt-4 mb-2">ติดต่อ</Heading>
 		<ul>
 			<li>

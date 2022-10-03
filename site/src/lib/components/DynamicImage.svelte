@@ -1,5 +1,4 @@
 <script>
-	import { Img } from 'flowbite-svelte';
 	export let src = '';
 	export let alt = '';
 	/** @type {any} */

@@ -1,6 +1,5 @@
 <script>
 	import DynamicImage from '@lib/components/DynamicImage.svelte';
-	import StaticImage from '@lib/components/StaticImage.svelte';
 	import { A, Heading, P, Span } from 'flowbite-svelte';
 	/** @type {import('./$types').PageData} */
 	export let data;

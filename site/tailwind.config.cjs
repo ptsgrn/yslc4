@@ -1,10 +1,11 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
-const colors = require('tailwindcss/colors')
+const colors = require('tailwindcss/colors');
 
 module.exports = {
 	content: [
 		'./src/**/*.{html,js,svelte,ts}',
-		"./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}"],
+		'./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}'
+	],
 	theme: {
 		fontFamily: {
 			sans: ['Inter', 'Noto Sans Thai', ...defaultTheme.fontFamily.sans]
@@ -33,16 +34,16 @@ module.exports = {
 				700: '#1a5b7f',
 				800: '#0f364c',
 				900: '#051219'
-			},
+			}
 		}
 	},
 	plugins: [
 		require('@tailwindcss/line-clamp'),
 		require('flowbite/plugin'),
-		require('@tailwindcss/aspect-ratio'),
+		require('@tailwindcss/aspect-ratio')
 	],
 	darkMode: 'class',
 	corePlugins: {
-		aspectRatio: false,
-	},
+		aspectRatio: false
+	}
 };

@@ -1,4 +1,6 @@
 <script>
+	// @ts-nocheck
+
 	import {
 		Button,
 		Checkbox,
@@ -241,9 +243,7 @@
 					และจำถูกทำลายทิ้งเมื่อถึงเวลาตามที่กฎหมายกำหนด</Label
 				>
 			</fieldset>
-			<Button type="submit">
-				ส่ง
-			</Button>
+			<Button type="submit">ส่ง</Button>
 		</div>
 	</form>
 </main>

@@ -1,5 +1,5 @@
 <script>
-	import { Button, Heading, Input, P, Span } from 'flowbite-svelte';
+	import { Button, Heading, P, Span } from 'flowbite-svelte';
 	import IconShutter from 'svelte-material-icons/CameraIris.svelte';
 	import IconImageFile from 'svelte-material-icons/FileImagePlusOutline.svelte';
 	/**
@@ -49,14 +49,10 @@
 				<img src={image} alt="ภาพที่นำเข้า" class="" />
 			{:else}
 				<Span><IconImageFile size="35" /></Span>
-				<Span class="text-center ml-2"> เลือกรูปภาพ </Span>
+				<Span class="text-center ml-2">เลือกรูปภาพ</Span>
 			{/if}
 		</label>
-		<Button
-			type="submit"
-		>
-			ตกลง
-		</Button>
+		<Button type="submit">ตกลง</Button>
 
 		<P class="w-full max-w-md mt-10">
 			<b>รูปแบบการทำงานของการสแกน:</b> เมื่อนำรูปมาสแกนระบบจะทำการสแกนรูปที่ท่านแนบลงมาและทำการ สแกนรูปภาพที่เหมือนในเว็บไซต์ให้ท่านได้เช็คการบริจาคนั้นๆว่าชื่อและเลขบัญชีเหมือนกันหรือไม่เพื่อให้ท่านมั่นใจในการบริจาคว่าจะไม่ถูก
