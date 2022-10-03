@@ -15,7 +15,7 @@
 			id: 1,
 			title: 'ทดสอบอันที่ 1',
 			datails: 'นี่คือ**ตัวอย่าง**การเขียนรายละเอียด __ใช้ได้ป่าว__ ~~นะเอ๋~~',
-			url_path: '/poor-dog-with-pra-test-test-2',
+			url_path: 'poor-dog-with-pra-test-test-2',
 			image: {
 				thumbnail: {
 					name: 'thumbnail_evan-krause-InAu-8bM2ow-unsplash.jpg',
@@ -177,7 +177,7 @@
 </script>
 
 <svelte:head>
-	<title>{categoryData.displayTitle}</title>
+	<title>หมวดหมู่: {categoryData.displayTitle}</title>
 </svelte:head>
 <header
 	class="

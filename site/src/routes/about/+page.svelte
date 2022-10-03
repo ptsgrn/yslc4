@@ -1,6 +1,7 @@
 <script>
 	const title = 'เกี่ยวกับ';
 	import HeroIMG from '@assets/banner.jpg';
+	import Link from '@lib/components/Link.svelte';
 	import { Heading, Li, List, Listgroup, ListgroupItem, P } from 'flowbite-svelte';
 	import IconExternalLink from 'svelte-material-icons/LinkVariant.svelte';
 	const socialLinks = [
@@ -72,17 +73,11 @@
 	<List class="list-['-_'] list-inside marker:text-gray-800 ml-3">
 		{#each socialLinks as link}
 			<Li>
-				<b>{link.name}:</b>&nbsp;<a href={link.url}>
+				<b>{link.name}:</b>&nbsp;<Link href={link.url}>
 					{link.text}
 					<IconExternalLink size="1em" />
-				</a>
+				</Link>
 			</Li>
 		{/each}
 	</List>
 </main>
-
-<style>
-	a {
-		color: rgb(24, 87, 187);
-	}
-</style>

@@ -47,8 +47,7 @@
 					<DynamicImage
 						formats={category.heroBanner.formats}
 						alt={category.heroBanner.alternativeText}
-						className="absolute saturate-50
-			group-hover:scale-110 transition-all group-hover:ease-in-out group-hover:saturate-100
+						className="z-10 group-hover:z-10 absolute saturate-50	group-hover:scale-110 transition-all group-hover:ease-in-out group-hover:saturate-100
 			"
 					/>
 				</div>
@@ -64,6 +63,6 @@
 		</a>
 	{/each}
 </main>
-<Span class="text-gray-600 text-center mb-3">
+<Span class="text-gray-600 text-center block mb-3">
 	พบทั้งสิ้น {categories.length} รายการ
 </Span>

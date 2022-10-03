@@ -11,7 +11,7 @@
 <svelte:head>
 	<title>เติมเต็มความหวัง ให้การบริจาคของคุณมีคุณค่า</title>
 </svelte:head>
-<main class="dark:bg-yellow-700 mx-auto">
+<main class="dark:bg-gradient-to-br dark:bg-yellow-900 dark:from-orange-800 dark:to-red-800 mx-auto">
 	<div class="flex flex-col sm:flex-row pt-10">
 		<div class="sm:w-full mr-10 sm:mr-none sm:mb-10">
 			<img
@@ -22,7 +22,7 @@
 				alt="มาสคอตของเติมเต็ม: แมวสวมหมวกสีฟ้าถือหัวใจ สะพายกระเป๋าที่มีหัวใจหลายดวงข้างใน"
 			/>
 		</div>
-		<div class="text-center sm:text-left">
+		<div class="text-center sm:text-left flex flex-col justify-center px-10 sm:pl-0">
 			<Heading class="block text-center sm:text-left">เติมเต็ม</Heading>
 			<Secondary class="block text-center sm:text-left">
 				ศูนย์กลางความช่วยเหลือที่<Span highlight>ไม่มีที่ว่างให้มิจฉาชีพ</Span>
@@ -66,5 +66,5 @@
 			</button>
 		</a>
 	</div>
-	<img src={Introduce2} alt="introsuce" class="w-full h-full" />
+	<img src={Introduce2} alt="introduce" class="w-full h-full" />
 </main>

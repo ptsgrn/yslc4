@@ -1,5 +1,5 @@
 <script>
-	import '@splidejs/svelte-splide/css';
+	import {page} from '$app/stores'
 	import {
 		DarkMode,
 		Footer,
@@ -12,23 +12,27 @@
 		NavLi,
 		NavUl
 	} from 'flowbite-svelte';
-	import { onMount } from 'svelte';
-	import { page } from '$app/stores';
 	import '../app.css';
 	import LogoIMG from '@assets/logo_uncrop.png';
 	import DtacSafeInternetIMG from '@assets/dtacSIC.png';
 	import YSLCIMG from '@assets/yscl-dtac-1024x574.png';
-	import IconWarning from 'svelte-material-icons/AlertCircleOutline.svelte';
-	import { dismiss } from '@lib/store/dismiss';
-	let key = 'user';
-	onMount(() => {
-		if (window.localStorage.getItem(key)) {
-			$dismiss = JSON.parse(window.localStorage.getItem(key) ?? '{}');
-		}
-		dismiss.subscribe((value) => {
-			window.localStorage.setItem(key, JSON.stringify(value));
-		});
-	});
+	let navigation = [{
+		display: 'หน้าหลัก',
+		link: '/'
+	},
+	{
+		display: 'เกี่ยวกับ',
+		link: '/about'
+	},{
+		display: 'ผู้ขอรับบริจาค',
+		link: '/category'
+	},{
+		display: 'ติดต่อเรา',
+		link: '/contact'
+	},{
+		display: 'แสกน',
+		link: '/scan'
+	}]
 </script>
 
 <svelte:head>
@@ -41,34 +45,35 @@
 </svelte:head>
 <a
 	href="#content"
-	class="absolute bg-blue-400 p-1 border-2 z-50 dark:text-white m-5 focus-within:opacity-100 opacity-0"
+	class="absolute bg-blue-400 p-1 border-2 dark:text-white m-5 focus-within:opacity-100 opacity-0"
 	>ข้ามไปส่วนเนื้อหา</a
 >
 <div class="fixed px-8 w-full z-40">
 	<Navbar
 		let:hidden
 		let:toggle
-		navClass="px-2 sm:px-4 py-2.5 absolute w-full top-0 left-0 border-b h-16 z-40"
+		navClass="px-2 sm:px-4 absolute w-full top-0 left-0 border-b h-16 z-40"
 	>
-		<NavBrand href="/" class="h-11">
+		<NavBrand href="/" class="h-9">
 			<img src={LogoIMG} class="ml-3 hidden sm:h-9 sm:block rounded-full" alt="โลโก้ของเติมเต็ม" />
 			<span class="self-center ml-3 whitespace-nowrap text-xl font-semibold dark:text-white"
 				>เติมเต็ม</span
 			>
 		</NavBrand>
-		<div class="flex flex-row align-baseline">
+		<div class="inline-block md:hidden ">
 			<NavHamburger on:click={toggle} />
-			<NavUl {hidden}>
-				<NavLi href="/">หน้าหลัก</NavLi>
-				<NavLi href="/about">เกี่ยวกับ</NavLi>
-				<NavLi href="/category">ผู้ขอรับบริจาค</NavLi>
-				<NavLi href="/contact">ติดต่อเรา</NavLi>
-				<NavLi href="/scan">แสกน</NavLi>
-			</NavUl>
 			<DarkMode
-				btnClass="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5 sm:p-none z-40"
+			btnClass="text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5 sm:p-none z-40"
 			/>
 		</div>
+		<NavUl {hidden} class="md:items-center">
+			{#each navigation as link}
+				<NavLi href="{link.link}" active="{link.link === $page.url.pathname}">{link.display}</NavLi>
+			{/each}
+			<DarkMode
+				btnClass="hidden md:inline-block text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5 sm:p-none z-40"
+			/>
+		</NavUl>
 	</Navbar>
 </div>
 <div class="pt-16" id="content">
