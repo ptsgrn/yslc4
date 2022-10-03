@@ -22,7 +22,7 @@
 	/**
 	 * @type {boolean}
 	 */
-	export let isInline;
+	export let isInline = false;
 	let renderers = {
 		// text: Span,
 		paragraph: P,

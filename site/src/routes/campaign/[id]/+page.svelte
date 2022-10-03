@@ -1,18 +1,8 @@
 <script>
-	import { donorsList } from '@lib/store/mockupdata';
-	import { onMount } from 'svelte';
-	import { goto } from '$app/navigation';
 	import DynamicImage from '@lib/components/DynamicImage.svelte';
 	import MarkdownRenderer from '@lib/components/MarkdownRenderer.svelte';
 	import { A, Heading, Li, List, P, Span } from 'flowbite-svelte';
 	import Anchor from '@lib/components/Anchor.svelte';
-	let linkId = 19;
-	$: data = $donorsList.find((donor) => `${donor.id}` === linkId) || [];
-	onMount(() => {
-		if (!data) {
-			goto('/donors');
-		}
-	});
 	let donor = {
 		title: 'ช่วยช้างตกงาน',
 		categories: [
@@ -75,7 +65,7 @@
 				url: 'http://storage.googleapis.com/termtem-site-assets/public/small_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0/small_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0.jpg'
 			}
 		},
-		details: '## asd\nทดสอบ [example](https://example.org)\n-------',
+		details: 'asd\nทดสอบ [example](https://example.org)',
 		donateStuff: {
 			contactName: 'นางสาวสมใจ ทดสอบเว็บ',
 			tel: '+12 12043342',
@@ -136,7 +126,7 @@
 		<Span highlight>
 			{donor.recipient}
 		</Span>
-		<MarkdownRenderer isInline>{donor.details}</MarkdownRenderer>
+		<MarkdownRenderer source={donor.details}/>
 
 		<Heading tag="h2" class="text-xl mt-4 mb-2">ช่องทางการบริจาค</Heading>
 		<Heading tag="h3">เงิน</Heading>
@@ -189,7 +179,7 @@
 
 		{#if donor.campaignSource}
 			<Heading tag="h2" class="text-xl mt-4 mb-2">อ้างอิง</Heading>
-			<MarkdownRenderer>{donor.campaignSource}</MarkdownRenderer>
+			<MarkdownRenderer source={donor.campaignSource}/>
 		{/if}
 	</div>
 </main>

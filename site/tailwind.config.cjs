@@ -42,7 +42,7 @@ module.exports = {
 		require('flowbite/plugin'),
 		require('@tailwindcss/aspect-ratio')
 	],
-	darkMode: 'class',
+	darkMode: 'media',
 	corePlugins: {
 		aspectRatio: false
 	}

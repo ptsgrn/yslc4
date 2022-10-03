@@ -54,7 +54,7 @@
 		let:toggle
 		navClass="px-2 sm:px-4 absolute w-full top-0 left-0 border-b h-16 z-40"
 	>
-		<NavBrand href="/" class="h-9">
+		<NavBrand href="/" class="h-16">
 			<img src={LogoIMG} class="ml-3 hidden sm:h-9 sm:block rounded-full" alt="โลโก้ของเติมเต็ม" />
 			<span class="self-center ml-3 whitespace-nowrap text-xl font-semibold dark:text-white"
 				>เติมเต็ม</span
