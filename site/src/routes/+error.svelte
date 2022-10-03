@@ -1,7 +1,9 @@
 <script>
 	import { page } from '$app/stores';
+	import { Heading, Span } from 'flowbite-svelte';
 	let code = $page.status;
 	let message = $page.error?.message;
+	let stack = $page.routeId
 </script>
 
 <svelte:head>
@@ -9,8 +11,7 @@
 </svelte:head>
 
 <main class="pb-10">
-	<img src={`https://http.cat/${code}`} alt="Status: {code}" class="w-full" />
-	<h2 class="text-2xl text-center mt-5">
+	<Heading class="text-2xl text-center mt-5 animate-bounce">
 		{message}
-	</h2>
+	</Heading>
 </main>

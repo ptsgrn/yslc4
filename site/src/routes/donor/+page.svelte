@@ -98,7 +98,8 @@
 			{/if}
 		</div>
 		<form class="flex items-center mt-3 mx-auto w-full justify-center">
-			<label for="simple-search" class="sr-only">ค้นหาจากข่าวที่เคยได้ยินหรือหัวข้อที่คุณสนใจ</label>
+			<label for="simple-search" class="sr-only">ค้นหาจากข่าวที่เคยได้ยินหรือหัวข้อที่คุณสนใจ</label
+			>
 			<div class="relative w-3xl">
 				<div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
 					<svg

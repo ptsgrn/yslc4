@@ -11,7 +11,7 @@ const config = {
 			'@lib': path.resolve('./src/lib'),
 			'@assets': path.resolve('./src/lib/assets')
 		}
-	},
+	}
 };
 
 export default config;

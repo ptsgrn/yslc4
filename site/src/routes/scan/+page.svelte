@@ -1,4 +1,5 @@
 <script>
+	import { Button, Heading, Input, P, Span } from 'flowbite-svelte';
 	import IconShutter from 'svelte-material-icons/CameraIris.svelte';
 	import IconImageFile from 'svelte-material-icons/FileImagePlusOutline.svelte';
 	/**
@@ -19,10 +20,12 @@
 <svelte:head>
 	<title>สแกนแชต</title>
 </svelte:head>
-<main class="container py-10 p-5">
+<main class="container py-10 p-5 m-auto">
 	<div class="flex flex-col items-center">
-		<IconShutter size="40px" />
-		<h1 class="text-center text-2xl font-bold">แสกนรูปภาพ</h1>
+		<Span>
+			<IconShutter size="40px" />
+		</Span>
+		<Heading class="text-center text-2xl font-bold">แสกนรูปภาพ</Heading>
 		<input
 			type="file"
 			id="file"
@@ -33,9 +36,11 @@
 		/>
 		<label
 			class="
-      w-full max-w-md m-5 aspect-[16/9] bg-gray-200 rounded-3xl cursor-pointer
+      w-full max-w-md m-5 min-w-fit py-20 bg-gray-200 rounded-3xl cursor-pointer
       flex items-center justify-center shadow-sm hover:shadow-md transition-all duration-150
       border-4 border-blue-300 overflow-hidden
+			flex-row
+			dark:bg-gray-900 dark:border-gray-700
     "
 			for="file"
 			title="กดเพื่อเลือกรูปภาพสำหรับอัปโหลด"
@@ -43,19 +48,19 @@
 			{#if image}
 				<img src={image} alt="ภาพที่นำเข้า" class="" />
 			{:else}
-				<IconImageFile size="35px" />
-				<span class="text-center ml-2"> เลือกรูปภาพ </span>
+				<Span><IconImageFile size="35" /></Span>
+				<Span class="text-center ml-2"> เลือกรูปภาพ </Span>
 			{/if}
 		</label>
-		<button
-			class="bg-red-500 hover:bg-red-700 text-white drop-shadow-lg font-bold py-2 px-4 rounded-full shadow-md hover:shadow-lg transition-all duration-150"
+		<Button
+			type="submit"
 		>
 			ตกลง
-		</button>
+		</Button>
 
-		<p class="w-full max-w-md mt-10">
+		<P class="w-full max-w-md mt-10">
 			<b>รูปแบบการทำงานของการสแกน:</b> เมื่อนำรูปมาสแกนระบบจะทำการสแกนรูปที่ท่านแนบลงมาและทำการ สแกนรูปภาพที่เหมือนในเว็บไซต์ให้ท่านได้เช็คการบริจาคนั้นๆว่าชื่อและเลขบัญชีเหมือนกันหรือไม่เพื่อให้ท่านมั่นใจในการบริจาคว่าจะไม่ถูก
 			มิจฉาชีพหลอก
-		</p>
+		</P>
 	</div>
 </main>

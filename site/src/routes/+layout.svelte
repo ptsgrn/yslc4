@@ -1,5 +1,24 @@
 <script>
 	import '@splidejs/svelte-splide/css';
+	import {
+		Button,
+		Chevron,
+		DarkMode,
+		Footer,
+		FooterCopyright,
+		FooterIcon,
+		FooterLink,
+		FooterLinkGroup,
+		Heading,
+		Mark,
+		MegaMenu,
+		Navbar,
+		NavBrand,
+		NavHamburger,
+		NavLi,
+		NavUl,
+		Span
+	} from 'flowbite-svelte';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import '../app.css';
@@ -8,34 +27,6 @@
 	import YSLCIMG from '@assets/yscl-dtac-1024x574.png';
 	import IconWarning from 'svelte-material-icons/AlertCircleOutline.svelte';
 	import { dismiss } from '@lib/store/dismiss';
-	let navigations = [
-		{
-			text: 'หน้าหลัก',
-			link: '/'
-		},
-		{
-			text: 'เกี่ยวกับ',
-			link: '/about'
-		},
-		{
-			text: 'ผู้ขอรับบริจาค',
-			link: '/donors'
-		},
-		{
-			text: 'ยื่นขอรับบริจาค',
-			link: '/submit'
-		},
-		{
-			text: 'ติดต่อเรา',
-			link: '/contact'
-		},
-		{
-			text: 'แสกน',
-			link: '/scan',
-			highlight: true
-		}
-	];
-	let isMenuOpen = false;
 	let key = 'user';
 	onMount(() => {
 		if (window.localStorage.getItem(key)) {
@@ -55,120 +46,106 @@
 		rel="stylesheet"
 	/>
 </svelte:head>
-
-<div
-	class="bg-red-700 text-yellow-50 p-2 text-center text-sm {$dismiss['in_present_mode']
-		? 'hidden'
-		: 'block'}"
+<a
+	href="#content"
+	class="absolute bg-blue-400 p-1 border-2 z-50 dark:text-white m-5 focus-within:opacity-100 opacity-0"
+	>ข้ามไปส่วนเนื้อหา</a
 >
-	<IconWarning size="25px" /> เว็บไซต์อยู่ในโหมดนำเสนอ หลาย ๆ ฟังก์ชันอาจยังใช้งานไม่ได้ ซึ่งจะมีการพัฒนาต่อในเวอร์ชันถัดไป
-	<button
-		class="underline"
-		on:click={() => {
-			$dismiss['in_present_mode'] = true;
-		}}>ปิด</button
+<div class="fixed px-8 w-full z-40">
+	<Navbar
+		let:hidden
+		let:toggle
+		navClass="px-2 sm:px-4 py-2.5 absolute w-full top-0 left-0 border-b h-16 z-40"
 	>
-	<a href="/about" class="underline">เกี่ยวกับเรา</a>
+		<NavBrand href="/" class="h-11">
+			<img src={LogoIMG} class="ml-3 hidden sm:h-9 sm:block rounded-full" alt="โลโก้ของเติมเต็ม" />
+			<span class="self-center ml-3 whitespace-nowrap text-xl font-semibold dark:text-white"
+				>เติมเต็ม</span
+			>
+		</NavBrand>
+		<div class="flex flex-row align-baseline">
+			<NavHamburger on:click={toggle} />
+			<NavUl {hidden}>
+				<NavLi href="/">หน้าหลัก</NavLi>
+				<NavLi href="/about">เกี่ยวกับ</NavLi>
+				<NavLi href="/category">ผู้ขอรับบริจาค</NavLi>
+				<NavLi href="/contact">ติดต่อเรา</NavLi>
+				<NavLi href="/scan">แสกน</NavLi>
+			</NavUl>
+				<DarkMode
+				btnClass="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5 sm:p-none z-40"
+				/>
+		</div>
+	</Navbar>
 </div>
-<nav class="bg-white md:flex md:flex-row md:justify-between relative z-50">
-	<a
-		href="/"
-		class="w-14 md:w-20 lg:w-[1fr] m-3 md:p-1 text-center mx-auto block text-xl text-blue-500 md:flex md:items-center relative"
-	>
-		<img src={LogoIMG} alt="เติมเต็ม" class="rounded-full md:w-14" />
-		<span class="ml-2 hidden w-28 lg:block whitespace-nowrap">เติมเต็ม</span>
-	</a>
-	<div class="w-full mx-auto absolute md:static md:max-w-5xl">
-		<div
-			class="
-      h-full
-      {isMenuOpen ? 'flex' : 'hidden'} md:flex flex-col items-center justify-center
-      p-2 text-lg
-      md:flex-row md:items-center md:justify-between
-      lg:static
-      bg-white
-      w-full
-      md:max-w-5xl
-    "
-		>
-			{#each navigations as entry}
-				<a
-					href={entry.link}
-					class="
-        w-full flex 
-        justify-center 
-        items-center 
-        md:px-3 md:border-0 md:w-sm md:hover:shadow-md md:rounded-lg md:mx-2
-        border-b-2 
-        border-blue-300 transition-all duration-200
-        hover:bg-blue-200
-        last:border-b-0
-        {entry.link === $page.url.pathname ? 'bg-blue-100' : ''}
-        {entry.highlight ? 'bg-blue-500 text-white md:font-bold md:shadow-lg' : ''}
-      "
+<div class="pt-16" id="content">
+	<slot />
+</div>
+
+<Footer footerType="sitemap">
+	<div class="grid grid-cols-2 gap-8 py-8 px-6 md:grid-cols-4 border-t-2 dark:border-gray-700">
+		<div>
+			<h2 class="mb-6 text-sm font-semibold text-gray-400 uppercase">บริจาค</h2>
+			<FooterLinkGroup ulClass="text-gray-300">
+				<FooterLink liClass="mb-4" href="/category">หมวดหมู่</FooterLink>
+				<FooterLink liClass="mb-4" href="/submit">ยื่นขอรับบริจาค</FooterLink>
+				<FooterLink liClass="mb-4" href="/scan">สแกน</FooterLink>
+			</FooterLinkGroup>
+		</div>
+		<div>
+			<h2 class="mb-6 text-sm font-semibold uppercase text-gray-400">สื่อสังคมออนไลน์</h2>
+			<FooterLinkGroup ulClass="text-gray-300">
+				<FooterLink liClass="mb-4" href="https://www.facebook.com/Thermtemcom-116128367755997/"
+					>Facebook</FooterLink
 				>
-					<span class="text-md p-2">
-						{entry.text}
-					</span>
-				</a>
-			{/each}
-			<!-- <a href="/login" class="
-        w-full flex 
-        justify-center 
-        items-center 
-        md:px-3  md:border-0 md:w-sm md:hover:shadow-md md:hover:rounded-lg
-        border-b-2 
-        border-blue-300 transition-all duration-200
-        hover:bg-blue-200
-      ">
-        <span class="text-md p-2">
-          เข้าสู่ระบบ
-        </span>
-      </a> -->
+				<FooterLink liClass="mb-4" href="https://line.me/ti/p/~@287htijc"
+					>Line Official Account</FooterLink
+				>
+				<FooterLink liClass="mb-4" href="mailto:mailto:thermtem.org@gmail.com">Email</FooterLink>
+			</FooterLinkGroup>
+		</div>
+		<div>
+			<h2 class="mb-6 text-sm font-semibold uppercase text-gray-400">เกี่ยวกับ</h2>
+			<FooterLinkGroup ulClass="text-gray-300">
+				<FooterLink liClass="mb-4" href="/about">เกี่ยวกับเรา</FooterLink>
+				<FooterLink liClass="mb-4" href="/contact">ติดต่อ</FooterLink>
+				<FooterLink liClass="mb-4" href="/terms">ข้อกำหนดและเงื่อนไข</FooterLink>
+			</FooterLinkGroup>
+		</div>
+		<div>
+			<h2 class="mb-6 text-sm font-semibold uppercase text-gray-400">โครงการ</h2>
+			<FooterLinkGroup ulClass="text-gray-300">
+				<FooterLink liClass="mb-4" href="https://safeinternetlab.com/"
+					>Dtac Safe internet Lab</FooterLink
+				>
+				<FooterLink liClass="mb-4" href="https://safeinternetlab.com/challenge/camp"
+					>Young Safe Internet Leader Cyber Camp ปี 4</FooterLink
+				>
+			</FooterLinkGroup>
 		</div>
 	</div>
-	<button
-		class="p-2 absolute cursor-pointer border-2 right-3 rounded-lg top-[50%] -translate-y-[50%] md:hidden {isMenuOpen
-			? 'bg-gray-300'
-			: ''}"
-		on:click={() => (isMenuOpen = !isMenuOpen)}
+
+	<div
+		class="flex flex-col justify-center items-center p-3 py-6 px-4 bg-gray-700 md:flex md:items-center md:justify-between"
 	>
-		เมนู
-	</button>
-</nav>
-<slot />
-<footer class="flex flex-col md:flex-row bg-gray-300 justify-center items-center p-3">
-	<div class="flex flex-row mb-3 md:mb-0">
-		<img src={LogoIMG} alt="Termtem logo" class="h-14 w-14 rounded-full mx-4" />
-		<a href="https://safeinternetlab.com/" title="จัดโครงการโดย Safe Internet LAB">
-			<img src={DtacSafeInternetIMG} alt="dtac Safe Internet logo" class="h-14 mx-4" />
-		</a>
+		<div class="flex flex-row">
+			<img src={LogoIMG} alt="Termtem logo" class="h-9 w-9 rounded-full mx-2" />
+			<a href="https://safeinternetlab.com/" title="จัดโครงการโดย Safe Internet LAB">
+				<img src={DtacSafeInternetIMG} alt="dtac Safe Internet logo" class="h-9 mx-2" />
+			</a>
+			<a
+				href="https://safeinternetlab.com/challenge/camp"
+				title="Young Safe Internet Leader Cyber Camp ปี 4"
+			>
+				<img src={YSLCIMG} alt="Young Safe Internet Leader CyberCamp" class="h-9 mx-2" />
+			</a>
+		</div>
+		<div class="flex flex-row">
+			<FooterCopyright
+				by="ptsgrn"
+				href="https://ptsgrn.dev"
+				spanClass="block text-sm text-gray-500 sm:text-center dark:text-gray-400 mt-2"
+			/>
+		</div>
 	</div>
-	<div class="flex flex-row">
-		<a
-			href="https://safeinternetlab.com/challenge/camp"
-			title="Young Safe Internet Leader Cyber Camp ปี 4"
-		>
-			<img src={YSLCIMG} alt="Young Safe Internet Leader CyberCamp" class="h-14 mx-4" />
-		</a>
-		<ul class="flex flex-col justify-center mx-4 text-xs">
-			<!-- <div class="flex">
-        <a href='mailto:thermtem.org@gmail.com' class="">
-          <IconEmailOutline size="20" />
-        </a>
-        <img src={LineSVGIMG} alt="line icon" class="h-[18px]" />
-      </div> -->
-			<li>
-				<b>Email:</b>&nbsp;<a href="mailto:thermtem.org@gmail.com">thermtem.org@gmail.com</a>
-			</li>
-			<li>
-				<b>Line&nbsp;Official:</b>&nbsp;<a href="https://line.me/ti/p/~@287htijc">@287htijc</a>
-			</li>
-			<li>
-				<b>Facebook:</b>&nbsp;<a href="https://www.facebook.com/Thermtemcom-116128367755997/"
-					>Thermtem.com</a
-				>
-			</li>
-		</ul>
-	</div>
-</footer>
+</Footer>
