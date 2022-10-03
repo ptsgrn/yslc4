@@ -14,12 +14,12 @@
 	{width}
 	{height}
 	loading="lazy"
-	srcset="{formats.thumbnail.url} {formats.thumbnail.width}w,
-{formats.small.url} {formats.small.width}w,
-{formats.medium.url} {formats.medium.width}w,
-{formats.large.url} {formats.large.width}w,
+	srcset="{formats.thumbnail.url.replace("http://","//")} {formats.thumbnail.width}w,
+{formats.small.url.replace("http://","//")} {formats.small.width}w,
+{formats.medium.url.replace("http://","//")} {formats.medium.width}w,
+{formats.large.url.replace("http://","//")} {formats.large.width}w,
 "
-	src={src !== '' ? src : formats.medium.url}
+	src={src !== '' ? src : formats.medium.url.replace("http://","//")}
 />
 
 <style>
