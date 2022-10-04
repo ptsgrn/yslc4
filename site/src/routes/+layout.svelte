@@ -29,10 +29,12 @@
 	},{
 		display: 'ติดต่อเรา',
 		link: '/contact'
-	},{
-		display: 'แสกน',
-		link: '/scan'
-	}]
+	},
+	// {
+	// 	display: 'แสกน',
+	// 	link: '/scan'
+	// }
+	]
 </script>
 
 <svelte:head>
