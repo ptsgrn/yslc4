@@ -1,6 +1,6 @@
 <script>
 	import DynamicImage from '@lib/components/DynamicImage.svelte';
-	import { A, Heading, P, Span } from 'flowbite-svelte';
+	import { Heading, P, Span } from 'flowbite-svelte';
 	/** @type {import('./$types').PageData} */
 	export let data;
 	let categories = data?.categories?.data;

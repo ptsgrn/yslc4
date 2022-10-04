@@ -1,123 +1,15 @@
 <script>
 	import { page } from '$app/stores';
-	import { Alert, Button, Heading, P, Span } from 'flowbite-svelte';
+	import { Alert, Button, Heading, P, Secondary, Span } from 'flowbite-svelte';
 	import DynamicImage from '@lib/components/DynamicImage.svelte';
 	import MarkdownRenderer from '@lib/components/MarkdownRenderer.svelte';
 	import IconPound from 'svelte-material-icons/Pound.svelte';
 	import IconDone from 'svelte-material-icons/Check.svelte';
-	const categoryName = $page.params.name;
 	/** @type {import('./$types').PageData} */
 	export let data;
-	const categoryData = data?.categoryData?.data[0];
-	let allCampaignsCount = 3;
-	let campaigns = [
-		{
-			id: 1,
-			title: 'ทดสอบอันที่ 1',
-			datails: 'นี่คือ**ตัวอย่าง**การเขียนรายละเอียด __ใช้ได้ป่าว__ ~~นะเอ๋~~',
-			url_path: 'poor-dog-with-pra-test-test-2',
-			image: {
-				thumbnail: {
-					name: 'thumbnail_evan-krause-InAu-8bM2ow-unsplash.jpg',
-					hash: 'thumbnail_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0',
-					ext: '.jpg',
-					mime: 'image/jpeg',
-					path: null,
-					width: 245,
-					height: 122,
-					size: 9.67,
-					url: 'http://storage.googleapis.com/termtem-site-assets/public/thumbnail_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0/thumbnail_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0.jpg'
-				},
-				medium: {
-					name: 'medium_evan-krause-InAu-8bM2ow-unsplash.jpg',
-					hash: 'medium_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0',
-					ext: '.jpg',
-					mime: 'image/jpeg',
-					path: null,
-					width: 750,
-					height: 375,
-					size: 71.09,
-					url: 'http://storage.googleapis.com/termtem-site-assets/public/medium_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0/medium_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0.jpg'
-				},
-				large: {
-					name: 'large_evan-krause-InAu-8bM2ow-unsplash.jpg',
-					hash: 'large_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0',
-					ext: '.jpg',
-					mime: 'image/jpeg',
-					path: null,
-					width: 1000,
-					height: 500,
-					size: 116.26,
-					url: 'http://storage.googleapis.com/termtem-site-assets/public/large_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0/large_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0.jpg'
-				},
-				small: {
-					name: 'small_evan-krause-InAu-8bM2ow-unsplash.jpg',
-					hash: 'small_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0',
-					ext: '.jpg',
-					mime: 'image/jpeg',
-					path: null,
-					width: 500,
-					height: 250,
-					size: 34.62,
-					url: 'http://storage.googleapis.com/termtem-site-assets/public/small_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0/small_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0.jpg'
-				}
-			}
-		},
-		{
-			id: 2,
-			title: 'ทดสอบอันที่ 2',
-			datails:
-				'ไฟไหม้ทุกอย่างหมด ไม่เหลืออะไรเลย ...\n.\nวันนี้ (5 พ.ค. 65) เวลาประมาณ 16.45 น. เกิดเหตุไฟไหม้บ้านของนางสาวฐิติชญา จิ๋วอยู่ บ้านเลขที่ 103/1 หมู่ 4 ต.วังแดง อ.ตรอน จ.อุตรดิตถ์ ทุกอย่างไหม้หมดไม่เหลืออะไรเลย\n.\nขอเชิญร่วมบริจาคเงิน ท่านใดอยากช่วยเหลือเหลือครอบครัวผู้ประสบอัคคีภัยเนื่องจากเหตุการณ์ไฟไหม้บ้านครอบครัว นางสาว ฐิติชญา จิ๋วอยู่  สามารถโอนเงินเข้าบัญชีเงินฝากได้ตามบัญชี',
-			url_path: '/poor-dog-with-pra-test-test-2',
-			image: {
-				thumbnail: {
-					name: 'thumbnail_evan-krause-InAu-8bM2ow-unsplash.jpg',
-					hash: 'thumbnail_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0',
-					ext: '.jpg',
-					mime: 'image/jpeg',
-					path: null,
-					width: 245,
-					height: 122,
-					size: 9.67,
-					url: 'http://storage.googleapis.com/termtem-site-assets/public/thumbnail_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0/thumbnail_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0.jpg'
-				},
-				medium: {
-					name: 'medium_evan-krause-InAu-8bM2ow-unsplash.jpg',
-					hash: 'medium_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0',
-					ext: '.jpg',
-					mime: 'image/jpeg',
-					path: null,
-					width: 750,
-					height: 375,
-					size: 71.09,
-					url: 'http://storage.googleapis.com/termtem-site-assets/public/medium_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0/medium_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0.jpg'
-				},
-				large: {
-					name: 'large_evan-krause-InAu-8bM2ow-unsplash.jpg',
-					hash: 'large_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0',
-					ext: '.jpg',
-					mime: 'image/jpeg',
-					path: null,
-					width: 1000,
-					height: 500,
-					size: 116.26,
-					url: 'http://storage.googleapis.com/termtem-site-assets/public/large_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0/large_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0.jpg'
-				},
-				small: {
-					name: 'small_evan-krause-InAu-8bM2ow-unsplash.jpg',
-					hash: 'small_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0',
-					ext: '.jpg',
-					mime: 'image/jpeg',
-					path: null,
-					width: 500,
-					height: 250,
-					size: 34.62,
-					url: 'http://storage.googleapis.com/termtem-site-assets/public/small_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0/small_evan_krause_In_Au_8b_M2ow_unsplash_d41ba742a0.jpg'
-				}
-			}
-		}
-	];
-
+	const categoryData = data.categoryData;
+	let campaigns = data.campaigns
+	let allCampaignsCount = data.allCampaignsCount;
 	function loadMoreData() {
 		campaigns.push({
 			id: 2,
@@ -201,13 +93,13 @@
 		<Heading class="text-3xl">
 			{categoryData.displayTitle}
 		</Heading>
-		<P
+		<Secondary
 			class="
         text-xl pt-5
       "
 		>
-			<MarkdownRenderer isInline source={categoryData.heroBannerCreadits} />
-		</P>
+			<MarkdownRenderer source={categoryData.description} />
+		</Secondary>
 		<Span
 			class="
         mt-4 text-md
@@ -222,9 +114,9 @@
 	{#each campaigns as campaign}
 		<a
 			class="flex flex=row border my-3 overflow-hidden p-2 rounded"
-			href="/campaign/{campaign.url_path}"
+			href="/campaign{campaign.url_path}"
 		>
-			<DynamicImage className="rounded w-40 object-fill" formats={campaign.image} />
+			<DynamicImage className="rounded w-40 object-fill" formats={campaign.heroImage.formats} />
 			<div class="ml-3 overflow-hidden w-auto">
 				<Span decorationClass="font-bold">{campaign.title}</Span>
 				<P class="line-clamp-2">{campaign.datails}</P>
