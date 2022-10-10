@@ -116,7 +116,7 @@
 			class="flex flex=row border my-3 overflow-hidden p-2 rounded"
 			href="/campaign{campaign.url_path}"
 		>
-			<DynamicImage className="rounded w-40 object-fill" formats={campaign.heroImage.formats} />
+			<DynamicImage className="rounded w-40 object-fill" src={campaign.heroImage.url} />
 			<div class="ml-3 overflow-hidden w-auto">
 				<Span decorationClass="font-bold">{campaign.title}</Span>
 				<P class="line-clamp-2">{campaign.datails}</P>
