@@ -10,7 +10,7 @@
 	let srcset = ''
 	for (let i = 0; i < size.length; i++) {
 		const element = size[i];
-		srcset += formats[size[i]] ? `${formats[size[i]]?['url'].replace('http://', '//')} ${formats[size[i]].width}w, \n` : ''
+		srcset += formats[size[i]] ? `${formats[size[i]]['url']?.replace('http://', '//')} ${formats[size[i]].width}w, \n` : ''
 	}
 </script>
 
