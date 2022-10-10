@@ -1,16 +1,21 @@
 <script>
-	import { page } from '$app/stores';
 	import { Alert, Button, Heading, P, Secondary, Span } from 'flowbite-svelte';
 	import DynamicImage from '@lib/components/DynamicImage.svelte';
 	import MarkdownRenderer from '@lib/components/MarkdownRenderer.svelte';
 	import IconPound from 'svelte-material-icons/Pound.svelte';
 	import IconDone from 'svelte-material-icons/Check.svelte';
+	import { ga } from '@beyonk/svelte-google-analytics'
 	/** @type {import('./$types').PageData} */
 	export let data;
 	const categoryData = data.categoryData;
-	let campaigns = data.campaigns
+	let campaigns = data.campaigns;
 	let allCampaignsCount = data.allCampaignsCount;
 	function loadMoreData() {
+		ga.addEvent('load_more_campaign_in_category', {
+			category: categoryData.referId,
+			currrent_show_count: campaigns,
+			all_count: allCampaignsCount
+		})
 		campaigns.push({
 			id: 2,
 			title: 'ทดสอบอันที่ 2',
@@ -115,8 +120,11 @@
 		<a
 			class="flex flex=row border my-3 overflow-hidden p-2 rounded"
 			href="/campaign{campaign.url_path}"
+			on:click|preventDefault={()=>{
+				ga.all.selectContent('campaign', campaign.id)
+			}}
 		>
-			<DynamicImage className="rounded w-40 object-fill" src={campaign.heroImage.url} />
+			<DynamicImage className="rounded w-40 object-fill" formats={campaign.heroImage.formats} />
 			<div class="ml-3 overflow-hidden w-auto">
 				<Span decorationClass="font-bold">{campaign.title}</Span>
 				<P class="line-clamp-2">{campaign.datails}</P>

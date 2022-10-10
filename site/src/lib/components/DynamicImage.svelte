@@ -6,6 +6,12 @@
 	export let className = '';
 	export let width = '';
 	export let height = '';
+	const size = ['thumbnail', 'small', 'medium', 'large']
+	let srcset = ''
+	for (let i = 0; i < size.length; i++) {
+		const element = size[i];
+		srcset += formats[size[i]] ? `${formats[size[i]]['url'].replace('http://', '//')} ${formats[size[i]].width}w` : ''
+	}
 </script>
 
 <img
@@ -14,12 +20,8 @@
 	{width}
 	{height}
 	loading="lazy"
-	srcset="{formats.thumbnail.url.replace("http://","//")} {formats.thumbnail.width}w,
-{formats.small.url.replace("http://","//")} {formats.small.width}w,
-{formats.medium.url.replace("http://","//")} {formats.medium.width}w,
-{formats.large.url.replace("http://","//")} {formats.large.width}w,
-"
-	src={src !== '' ? src : formats.medium.url.replace("http://","//")}
+	srcset="{srcset}"
+	src={src !== '' ? src : formats.medium.url.replace('http://', '//')}
 />
 
 <style>

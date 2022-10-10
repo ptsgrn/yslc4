@@ -11,7 +11,9 @@
 <svelte:head>
 	<title>เติมเต็มความหวัง ให้การบริจาคของคุณมีคุณค่า</title>
 </svelte:head>
-<main class="dark:bg-gradient-to-br dark:bg-yellow-900 dark:from-orange-800 dark:to-red-800 mx-auto">
+<main
+	class="dark:bg-gradient-to-br dark:bg-yellow-900 dark:from-orange-800 dark:to-red-800 mx-auto"
+>
 	<div class="flex flex-col sm:flex-row pt-10">
 		<div class="sm:w-full mr-10 sm:mr-none sm:mb-10">
 			<img

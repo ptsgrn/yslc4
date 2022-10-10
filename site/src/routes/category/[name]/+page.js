@@ -12,26 +12,20 @@ export async function load({ fetch, params }) {
 				$eqi: params.name
 			}
 		},
-		fields: [
-			'displayTitle',
-			'description',
-			'heroBannerCreadits',
-		],
-		populate: [
-			'heroBanner'
-		]
-	})
+		fields: ['displayTitle', 'description', 'heroBannerCreadits'],
+		populate: ['heroBanner']
+	});
 	const queryCampaigns = QueryString.stringify({
 		filters: {
 			categories: {
 				referId: params.name
 			}
 		},
-		populate: "*"
-	})
-	const categoryData = await (await fetch(`/api/categories?${queryCategory}`)).json()
-	const campaignsData = await (await fetch(`/api/campaigns?${queryCampaigns}`)).json()
-	if (categoryData.data.length === 0) return redirect(301, '/category')
+		populate: '*'
+	});
+	const categoryData = await (await fetch(`/api/categories?${queryCategory}`)).json();
+	const campaignsData = await (await fetch(`/api/campaigns?${queryCampaigns}`)).json();
+	if (categoryData.data.length === 0) return redirect(301, '/category');
 	return {
 		categoryData: categoryData.data[0],
 		campaigns: campaignsData.data,

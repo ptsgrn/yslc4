@@ -1,5 +1,6 @@
 <script>
-	import {page} from '$app/stores'
+	import { page } from '$app/stores';
+	import { GoogleAnalytics } from '@beyonk/svelte-google-analytics';
 	import {
 		DarkMode,
 		Footer,
@@ -16,25 +17,28 @@
 	import LogoIMG from '@assets/logo_uncrop.png';
 	import DtacSafeInternetIMG from '@assets/dtacSIC.png';
 	import YSLCIMG from '@assets/yscl-dtac-1024x574.png';
-	let navigation = [{
-		display: 'หน้าหลัก',
-		link: '/'
-	},
-	{
-		display: 'เกี่ยวกับ',
-		link: '/about'
-	},{
-		display: 'ผู้ขอรับบริจาค',
-		link: '/category'
-	},{
-		display: 'ติดต่อเรา',
-		link: '/contact'
-	},
-	// {
-	// 	display: 'แสกน',
-	// 	link: '/scan'
-	// }
-	]
+	let navigation = [
+		{
+			display: 'หน้าหลัก',
+			link: '/'
+		},
+		{
+			display: 'เกี่ยวกับ',
+			link: '/about'
+		},
+		{
+			display: 'ผู้ขอรับบริจาค',
+			link: '/category'
+		},
+		{
+			display: 'ติดต่อเรา',
+			link: '/contact'
+		}
+		// {
+		// 	display: 'แสกน',
+		// 	link: '/scan'
+		// }
+	];
 </script>
 
 <svelte:head>
@@ -45,6 +49,8 @@
 		rel="stylesheet"
 	/>
 </svelte:head>
+<GoogleAnalytics properties={[ 'G-TW1DBKX9KE']}/>
+
 <a
 	href="#content"
 	class="absolute bg-blue-400 p-1 border-2 dark:text-white m-5 focus-within:opacity-100 opacity-0"
@@ -65,12 +71,12 @@
 		<div class="inline-block md:hidden ">
 			<NavHamburger on:click={toggle} />
 			<DarkMode
-			btnClass="text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5 sm:p-none z-40"
+				btnClass="text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5 sm:p-none z-40"
 			/>
 		</div>
 		<NavUl {hidden} class="md:items-center">
 			{#each navigation as link}
-				<NavLi href="{link.link}" active="{link.link === $page.url.pathname}">{link.display}</NavLi>
+				<NavLi href={link.link} active={link.link === $page.url.pathname}>{link.display}</NavLi>
 			{/each}
 			<DarkMode
 				btnClass="hidden md:inline-block text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5 sm:p-none z-40"

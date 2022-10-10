@@ -48,11 +48,13 @@
 	<List class="marker:text-gray-800 ml-3">
 		<Li>
 			ดูซอร์สโค้ดบน <Link href="https://github.com/ptsgrn/yslc4/tree/main/site"
-				>GitHub <IconExternalLink size="1em" /></Link>
+				>GitHub <IconExternalLink size="1em" /></Link
+			>
 		</Li>
 		<Li>
 			กรุณาติดต่อผู้ดูแลเว็บที่ <Link href="mailto:contact+s9t34onc@patsag.one"
-				>contact+s9t34onc@patsag.one <IconEmail size="1em" /></Link>
+				>contact+s9t34onc@patsag.one <IconEmail size="1em" /></Link
+			>
 		</Li>
 	</List>
 </main>
