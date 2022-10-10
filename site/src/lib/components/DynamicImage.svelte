@@ -10,7 +10,7 @@
 	let srcset = ''
 	for (let i = 0; i < size.length; i++) {
 		const element = size[i];
-		srcset += formats[size[i]] ? `${formats[size[i]]['url'].replace('http://', '//')} ${formats[size[i]].width}w` : ''
+		srcset += formats[size[i]] ? `${formats[size[i]]?['url'].replace('http://', '//')} ${formats[size[i]].width}w, \n` : ''
 	}
 </script>
 
@@ -21,7 +21,7 @@
 	{height}
 	loading="lazy"
 	srcset="{srcset}"
-	src={src !== '' ? src : formats.medium.url.replace('http://', '//')}
+	src={src !== '' ? src : formats?.medium?.url?.replace('http://', '//')}
 />
 
 <style>
