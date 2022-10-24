@@ -7,21 +7,18 @@
 	export let data;
 	let donor = data.donor;
 </script>
-
 <svelte:head>
 	<title>
 		{donor.title}
 	</title>
 </svelte:head>
 <main class="p-10 container mx-auto md:max-w-2xl">
-	<pre>{JSON.stringify(data, null, 2)}</pre>
 	<div class="">
 		<DynamicImage formats={donor.heroImage.formats} />
 	</div>
 	<Heading class="text-xl font-bold text-center my-7 mb-10">
 		{donor.title}
 	</Heading>
-
 	<div class="container">
 		<Heading tag="h2" class="text-xl mt-4 mb-2">ข้อมูลทั่วไป</Heading>
 		<Span highlight>
@@ -33,15 +30,15 @@
 			<Heading tag="h3">เงิน</Heading>
 			<List class="ml-2 mt-2">
 				{#each donor.donateMoney as account}
-					<Li><b>ชื่อบัญชี:</b> {account.accountName || '-ไม่ได้ระบุ-'}</Li>
-					<Li><b>เลขที่บัญชี:</b> {account.accountID || '-ไม่ได้ระบุ-'}</Li>
-					<Li class="mb-2 last:mb-0"><b>ธนาคาร:</b> {account.bank || '-ไม่ได้ระบุ-'}</Li>
+				<Li><b>ชื่อบัญชี:</b> {account.accountName ?? '-ไม่ได้ระบุ-'}</Li>
+				<Li><b>เลขที่บัญชี:</b> {account.accountID ?? '-ไม่ได้ระบุ-'}</Li>
+				<Li class="mb-2 last:mb-0"><b>ธนาคาร:</b> {account.bank ?? '-ไม่ได้ระบุ-'}</Li>
 				{/each}
 			</List>
 		{/if}
-		{#if donor.donateStuff}
+		{#if donor.donateStuff?.address}
 			<Heading tag="h3">สิ่งของ</Heading>
-			{#if donor.donateStuff?.address.length > 0}
+			{#if donor.donateStuff?.address?.length > 0}
 				<P>
 					เนื่องจากแคมเปญนี้รับการบริจาคหลายช่องทาง
 					คุณสามารถเลือกช่องทางใดช่องทางหนึ่งเพื่อบริจาคได้ กรณีมีข้อสงสัย
@@ -70,21 +67,20 @@
 			</List>
 		{/if}
 		<Anchor id="contact" />
-		<!-- <Heading tag="h2" class="text-xl mt-4 mb-2">ติดต่อ</Heading>
+		<Heading tag="h2" class="text-xl mt-4 mb-2">ติดต่อ</Heading>
 		<List>
 			<Li>
 				<b>ติอต่อ:</b>
-				{donor.donateStuff.contactName}
+				{donor.donateStuff.contactName ?? '-ไม่ได้ระบุ-'}
 			</Li>
-			<li>
+			<Li>
 				<b>โทร:</b>
 				{donor.donateStuff.tel}
-			</li>
-		</List> -->
-
-		<!-- {#if donor.campaignSource}
+			</Li>
+		</List>
+		{#if donor.campaignSource}
 			<Heading tag="h2" class="text-xl mt-4 mb-2">อ้างอิง</Heading>
 			<MarkdownRenderer source={donor.campaignSource}/>
-		{/if} -->
+		{/if}
 	</div>
 </main>

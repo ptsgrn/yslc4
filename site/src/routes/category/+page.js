@@ -6,12 +6,9 @@ export async function load({ fetch }) {
 		{
 			fields: ['displayTitle', 'referId', 'description', 'heroBannerCreadits'],
 			populate: ['heroBanner']
-		},
-		{
-			encodeValuesOnly: true // prettify URL
 		}
 	);
-	console.log(`/api/categories?${query}`);
+	console.log(await fetch(`/api/categories?${query}`))
 	const categories = await (await fetch(`/api/categories?${query}`)).json();
 	return {
 		categories

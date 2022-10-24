@@ -12,15 +12,13 @@ export async function GET({ url }) {
 	// } else {
 	//   cache[url.href] = data
 	// }
-	data = JSON.stringify(
-		await (
-			await axios.get(`${PUBLIC_API_ENDPOINT}${url.pathname}${url.search}`, {
-				headers: {
-					'Cache-Control': 'max-age=1500'
-				}
-			})
-		).data
-	);
+	try {
+		const response = await axios.get(`${PUBLIC_API_ENDPOINT}${url.pathname}${url.search}`);
+		data = JSON.stringify(response.data);
+	} catch (err) {
+		// @ts-ignore
+		error(500, err);
+	}
 
 	return new Response(data, {
 		headers: {}
