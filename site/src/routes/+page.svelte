@@ -11,9 +11,7 @@
 <svelte:head>
 	<title>เติมเต็มความหวัง ให้การบริจาคของคุณมีคุณค่า</title>
 </svelte:head>
-<main
-	class="dark:bg-gradient-to-br dark:bg-yellow-900 dark:from-orange-800 dark:to-red-800 mx-auto"
->
+<main class="dark:bg-gradient-to-br dark:bg-gray-850 mx-auto">
 	<div class="flex flex-col sm:flex-row pt-10">
 		<div class="sm:w-full mr-10 sm:mr-none sm:mb-10">
 			<img
@@ -37,9 +35,9 @@
 	</div>
 	<div class="py-10 flex flex-col justify-center items-center">
 		<Heading tag="h2" class="text-3xl p-2 mb-3 font-bold text-center">เริ่มต้น</Heading>
-		<a href="/category" class="inline w-40">
+		<a href="/category" class="inline w-64">
 			<button
-				class="bg-white dark:bg-yellow-900 dark:text-white py-1.5 px-2 rounded-lg w-44 text-sm text-left shadow-md hover:shadow-lg active:shadow-sm transition duration-150"
+				class="bg-white dark:bg-gray-900 dark:text-white py-1.5 px-2 rounded-lg w-64 text-sm text-left shadow-md hover:shadow-lg active:shadow-sm transition duration-150"
 			>
 				<span class="mr-3">
 					<Human size="27" />
@@ -47,9 +45,9 @@
 				<span class="w-40"> ผู้ขอรับบริจาค </span>
 			</button>
 		</a>
-		<a href="/submit" class="inline w-40 mt-4">
+		<a href="/submit" class="inline w-64 mt-4">
 			<button
-				class="bg-white dark:bg-yellow-900 dark:text-white py-1.5 px-2 rounded-lg w-44 text-sm text-left shadow-md hover:shadow-lg active:shadow-sm transition duration-150"
+				class="bg-white dark:bg-gray-900 dark:text-white py-1.5 px-2 rounded-lg w-64 text-sm text-left shadow-md hover:shadow-lg active:shadow-sm transition duration-150"
 			>
 				<span class="mr-3">
 					<IconEmailOutline size="27" />
@@ -57,14 +55,14 @@
 				<span class="w-40"> ยื่นขอรับบริจาค </span>
 			</button>
 		</a>
-		<a href="/scan" class="inline w-40 mt-4">
+		<a href="/scan" class="inline w-64 mt-4">
 			<button
-				class="bg-white dark:bg-yellow-900 dark:text-white py-1.5 px-2 rounded-lg w-44 text-sm text-left shadow-md hover:shadow-lg active:shadow-sm transition duration-150"
+				class="bg-white dark:bg-gray-900 dark:text-white py-1.5 px-2 rounded-lg w-64 text-sm text-left shadow-md hover:shadow-lg active:shadow-sm transition duration-150"
 			>
 				<span class="mr-3">
 					<CommentSearchOutline size="27" />
 				</span>
-				<span class="w-40"> แสกนรูปภาพ </span>
+				<span class="w-40"> สแกนรูปภาพ (ยังไม่พร้อมใช้งาน) </span>
 			</button>
 		</a>
 	</div>

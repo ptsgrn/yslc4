@@ -35,7 +35,7 @@
 			link: '/contact'
 		}
 		// {
-		// 	display: 'แสกน',
+		// 	display: 'สแกน',
 		// 	link: '/scan'
 		// }
 	];
@@ -49,7 +49,7 @@
 		rel="stylesheet"
 	/>
 </svelte:head>
-<GoogleAnalytics properties={[ 'G-TW1DBKX9KE']}/>
+<GoogleAnalytics properties={['G-TW1DBKX9KE']} />
 
 <a
 	href="#content"

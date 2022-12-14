@@ -6,11 +6,13 @@
 	export let className = '';
 	export let width = '';
 	export let height = '';
-	const size = ['thumbnail', 'small', 'medium', 'large']
-	let srcset = ''
+	const size = ['thumbnail', 'small', 'medium', 'large'];
+	let srcset = '';
 	for (let i = 0; i < size.length; i++) {
 		const element = size[i];
-		srcset += formats[size[i]] ? `${formats[size[i]]['url']?.replace('http://', '//')} ${formats[size[i]].width}w, \n` : ''
+		srcset += formats[size[i]]
+			? `${formats[size[i]]['url']?.replace('http://', '//')} ${formats[size[i]].width}w, \n`
+			: '';
 	}
 </script>
 
@@ -20,7 +22,7 @@
 	{width}
 	{height}
 	loading="lazy"
-	srcset="{srcset}"
+	{srcset}
 	src={src !== '' ? src : formats?.medium?.url?.replace('http://', '//')}
 />
 

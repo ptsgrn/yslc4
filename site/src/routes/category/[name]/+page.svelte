@@ -4,7 +4,7 @@
 	import MarkdownRenderer from '@lib/components/MarkdownRenderer.svelte';
 	import IconPound from 'svelte-material-icons/Pound.svelte';
 	import IconDone from 'svelte-material-icons/Check.svelte';
-	import { ga } from '@beyonk/svelte-google-analytics'
+	import { ga } from '@beyonk/svelte-google-analytics';
 	import { goto } from '$app/navigation';
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -16,7 +16,7 @@
 			category: categoryData.referId,
 			currrent_show_count: campaigns,
 			all_count: allCampaignsCount
-		})
+		});
 		campaigns.push({
 			id: 2,
 			title: 'ทดสอบอันที่ 2',
@@ -121,9 +121,9 @@
 		<a
 			class="flex flex=row border my-3 overflow-hidden p-2 rounded"
 			href="/campaign{campaign.url_path}"
-			on:click|preventDefault={async ()=>{
-				ga.all.selectContent('campaign', campaign.id)
-				await goto(`/campaign${campaign.url_path}`)
+			on:click|preventDefault={async () => {
+				ga.all.selectContent('campaign', campaign.id);
+				await goto(`/campaign${campaign.url_path}`);
 			}}
 		>
 			<DynamicImage className="rounded w-40 object-fill" formats={campaign.heroImage.formats} />

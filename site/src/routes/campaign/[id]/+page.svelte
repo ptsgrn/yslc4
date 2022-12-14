@@ -7,6 +7,7 @@
 	export let data;
 	let donor = data.donor;
 </script>
+
 <svelte:head>
 	<title>
 		{donor.title}
@@ -30,9 +31,9 @@
 			<Heading tag="h3">เงิน</Heading>
 			<List class="ml-2 mt-2">
 				{#each donor.donateMoney as account}
-				<Li><b>ชื่อบัญชี:</b> {account.accountName ?? '-ไม่ได้ระบุ-'}</Li>
-				<Li><b>เลขที่บัญชี:</b> {account.accountID ?? '-ไม่ได้ระบุ-'}</Li>
-				<Li class="mb-2 last:mb-0"><b>ธนาคาร:</b> {account.bank ?? '-ไม่ได้ระบุ-'}</Li>
+					<Li><b>ชื่อบัญชี:</b> {account.accountName ?? '-ไม่ได้ระบุ-'}</Li>
+					<Li><b>เลขที่บัญชี:</b> {account.accountID ?? '-ไม่ได้ระบุ-'}</Li>
+					<Li class="mb-2 last:mb-0"><b>ธนาคาร:</b> {account.bank ?? '-ไม่ได้ระบุ-'}</Li>
 				{/each}
 			</List>
 		{/if}
@@ -80,7 +81,7 @@
 		</List>
 		{#if donor.campaignSource}
 			<Heading tag="h2" class="text-xl mt-4 mb-2">อ้างอิง</Heading>
-			<MarkdownRenderer source={donor.campaignSource}/>
+			<MarkdownRenderer source={donor.campaignSource} />
 		{/if}
 	</div>
 </main>
